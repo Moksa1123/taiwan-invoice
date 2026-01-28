@@ -4,7 +4,7 @@
 
 ![Version](https://img.shields.io/badge/version-2.0.0-blue?style=flat-square)
 ![Providers](https://img.shields.io/badge/providers-3-green?style=flat-square)
-![Platforms](https://img.shields.io/badge/platforms-3-purple?style=flat-square)
+![Platforms](https://img.shields.io/badge/platforms-14-purple?style=flat-square)
 ![API Docs](https://img.shields.io/badge/API_docs-3-orange?style=flat-square)
 ![Examples](https://img.shields.io/badge/examples-9-red?style=flat-square)
 ![Python](https://img.shields.io/badge/python-3.x-yellow?style=flat-square&logo=python&logoColor=white)
@@ -18,7 +18,7 @@ An AI skill that provides Taiwan E-Invoice API integration intelligence for mult
 
 **台灣電子發票 AI 開發技能包**
 
-Works with &nbsp; ![Claude Code](https://img.shields.io/badge/Claude_Code-black?style=flat-square&logo=anthropic&logoColor=white) &nbsp; ![Cursor](https://img.shields.io/badge/Cursor-black?style=flat-square&logo=cursor&logoColor=white) &nbsp; ![Antigravity](https://img.shields.io/badge/Antigravity-black?style=flat-square&logo=google&logoColor=white)
+Works with &nbsp; ![Claude Code](https://img.shields.io/badge/Claude_Code-black?style=flat-square&logo=anthropic&logoColor=white) &nbsp; ![Cursor](https://img.shields.io/badge/Cursor-black?style=flat-square&logo=cursor&logoColor=white) &nbsp; ![Windsurf](https://img.shields.io/badge/Windsurf-black?style=flat-square) &nbsp; ![Copilot](https://img.shields.io/badge/Copilot-black?style=flat-square&logo=github&logoColor=white) &nbsp; ![Antigravity](https://img.shields.io/badge/Antigravity-black?style=flat-square&logo=google&logoColor=white) &nbsp; and 9 more...
 
 </div>
 
@@ -34,7 +34,7 @@ Works with &nbsp; ![Claude Code](https://img.shields.io/badge/Claude_Code-black?
 | **API References** | 3 | 完整 API 規格文件（含欄位、錯誤碼、測試帳號） |
 | **Code Examples** | 9 | 基礎範例 + 實務情境 + 錯誤修正 |
 | **Helper Scripts** | 2 | 服務模組生成器、金額計算驗證 |
-| **Platforms** | 3 | Claude Code, Cursor, Google Antigravity |
+| **Platforms** | 14 | Claude Code, Cursor, Windsurf, Copilot, Antigravity, and more |
 
 ---
 
@@ -57,10 +57,9 @@ Works with &nbsp; ![Claude Code](https://img.shields.io/badge/Claude_Code-black?
 |  FEATURES:                                                                        |
 |     Issue | Void | Allowance | Query | Print                                      |
 |                                                                                   |
-|  INVOCATION:                                                                      |
-|     Claude Code    /taiwan-invoice or auto-activate                               |
-|     Cursor         /taiwan-invoice or auto-activate                               |
-|     Antigravity    Auto-activate based on description                             |
+|  PLATFORMS (14 supported):                                                        |
+|     Claude Code, Cursor, Windsurf, Copilot, Antigravity, Kiro, Codex,            |
+|     Qoder, RooCode, Gemini CLI, Trae, OpenCode, Continue, CodeBuddy              |
 |                                                                                   |
 +-----------------------------------------------------------------------------------+
 ```
@@ -78,15 +77,26 @@ npm install -g taiwan-invoice-skill
 # Install for your AI assistant
 taiwan-invoice init --ai claude        # Claude Code
 taiwan-invoice init --ai cursor        # Cursor
+taiwan-invoice init --ai windsurf      # Windsurf
+taiwan-invoice init --ai copilot       # GitHub Copilot
 taiwan-invoice init --ai antigravity   # Google Antigravity
-taiwan-invoice init --ai all           # All platforms
+taiwan-invoice init --ai all           # All 14 platforms
+
+# List all supported platforms
+taiwan-invoice list
 ```
 
-**CLI Options:**
+**CLI Commands:**
 
 ```bash
+taiwan-invoice init --ai claude            # Install for specific platform
 taiwan-invoice init --ai claude --global   # Install to global directory
-taiwan-invoice --version                   # Show version
+taiwan-invoice init --ai all               # Install for all 14 platforms
+taiwan-invoice list                        # List all supported platforms
+taiwan-invoice info                        # Show skill information
+taiwan-invoice versions                    # List available versions
+taiwan-invoice update                      # Check for updates
+taiwan-invoice --version                   # Show CLI version
 taiwan-invoice --help                      # Show help
 ```
 
@@ -123,15 +133,26 @@ cp -r taiwan-invoice ~/.cursor/skills/taiwan-invoice
 cp -r taiwan-invoice ~/.gemini/antigravity/global_skills/taiwan-invoice
 ```
 
-### Platform Paths
+### Supported Platforms
 
-| Platform | Project Level | Global Level |
-|----------|---------------|--------------|
-| Claude Code | `.claude/skills/taiwan-invoice/` | `~/.claude/skills/` |
-| Cursor | `.cursor/skills/taiwan-invoice/` | `~/.cursor/skills/` |
-| Antigravity | `.agent/skills/taiwan-invoice/` | `~/.gemini/antigravity/global_skills/` |
+| Platform | Description |
+|----------|-------------|
+| **Claude Code** | Anthropic's official AI coding assistant |
+| **Cursor** | AI-powered code editor |
+| **Windsurf** | Codeium's AI code editor |
+| **Copilot** | GitHub Copilot Chat |
+| **Antigravity** | Google's AI coding assistant |
+| **Kiro** | AWS AI coding assistant |
+| **Codex** | OpenAI Codex CLI |
+| **Qoder** | Qodo AI coding assistant |
+| **RooCode** | VSCode AI extension |
+| **Gemini CLI** | Google Gemini CLI tool |
+| **Trae** | ByteDance AI coding assistant |
+| **OpenCode** | Open-source AI assistant |
+| **Continue** | Open-source AI assistant |
+| **CodeBuddy** | Tencent AI coding assistant |
 
-> **Note:** Cursor can also read `.claude/skills/` directory for cross-compatibility.
+Run `taiwan-invoice list` to see all platforms with their installation paths.
 
 ---
 
