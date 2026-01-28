@@ -10,6 +10,10 @@ Taiwan Invoice Skills -- 台灣電子發票 AI 開發技能包
 涵蓋 B2C/B2B 開立、作廢、折讓、查詢及列印完整功能。
 三個平台共用同一份 SKILL.md，遵循 [Agent Skills 開放標準](https://agentskills.io)。
 
+如果覺得這個專案有幫助，歡迎支持：
+
+[![PayPal](https://img.shields.io/badge/PayPal-Donate-blue?style=flat-square&logo=paypal)](https://paypal.me/cccsubcom)
+
 ## 概覽
 
 ```
