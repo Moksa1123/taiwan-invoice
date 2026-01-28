@@ -1,18 +1,26 @@
+<div align="center">
+
 # Taiwan Invoice Skills
 
-**Taiwan E-Invoice** | **3 Providers** | **3 AI Platforms** | **Agent Skills Standard** | **MIT License**
+![Version](https://img.shields.io/badge/version-2.0.0-blue?style=flat-square)
+![Providers](https://img.shields.io/badge/providers-3-green?style=flat-square)
+![Platforms](https://img.shields.io/badge/platforms-3-purple?style=flat-square)
+![Python](https://img.shields.io/badge/python-3.x-yellow?style=flat-square&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square)
 
 An AI skill that provides Taiwan E-Invoice API integration intelligence for Claude Code, Cursor, and Google Antigravity.
 
-Taiwan Invoice Skills -- 台灣電子發票 AI 開發技能包
+**Taiwan Invoice Skills -- 台灣電子發票 AI 開發技能包**
 
-支援綠界 (ECPay)、速買配 (SmilePay)、光貿 (Amego) 三大發票加值中心。
-涵蓋 B2C/B2B 開立、作廢、折讓、查詢及列印完整功能。
+支援綠界 (ECPay)、速買配 (SmilePay)、光貿 (Amego) 三大發票加值中心。<br>
+涵蓋 B2C/B2B 開立、作廢、折讓、查詢及列印完整功能。<br>
 三個平台共用同一份 SKILL.md，遵循 [Agent Skills 開放標準](https://agentskills.io)。
 
 如果覺得這個專案有幫助，歡迎支持：
 
-[![PayPal](https://img.shields.io/badge/PayPal-Donate-blue?style=flat-square&logo=paypal)](https://paypal.me/cccsubcom)
+[![PayPal](https://img.shields.io/badge/PayPal-Donate-blue?style=for-the-badge&logo=paypal)](https://paypal.me/cccsubcom)
+
+</div>
 
 ## 概覽
 
