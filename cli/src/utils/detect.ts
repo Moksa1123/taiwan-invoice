@@ -16,8 +16,41 @@ export function detectAIType(cwd: string = process.cwd()): DetectionResult {
   if (existsSync(join(cwd, '.cursor'))) {
     detected.push('cursor');
   }
+  if (existsSync(join(cwd, '.windsurf'))) {
+    detected.push('windsurf');
+  }
   if (existsSync(join(cwd, '.agent'))) {
     detected.push('antigravity');
+  }
+  if (existsSync(join(cwd, '.github'))) {
+    detected.push('copilot');
+  }
+  if (existsSync(join(cwd, '.kiro'))) {
+    detected.push('kiro');
+  }
+  if (existsSync(join(cwd, '.codex'))) {
+    detected.push('codex');
+  }
+  if (existsSync(join(cwd, '.qoder'))) {
+    detected.push('qoder');
+  }
+  if (existsSync(join(cwd, '.roo'))) {
+    detected.push('roocode');
+  }
+  if (existsSync(join(cwd, '.gemini'))) {
+    detected.push('gemini');
+  }
+  if (existsSync(join(cwd, '.trae'))) {
+    detected.push('trae');
+  }
+  if (existsSync(join(cwd, '.opencode'))) {
+    detected.push('opencode');
+  }
+  if (existsSync(join(cwd, '.continue'))) {
+    detected.push('continue');
+  }
+  if (existsSync(join(cwd, '.codebuddy'))) {
+    detected.push('codebuddy');
   }
 
   let suggested: AIType | null = null;
@@ -36,8 +69,30 @@ export function getAITypeDescription(aiType: AIType): string {
       return 'Claude Code (.claude/skills/)';
     case 'cursor':
       return 'Cursor (.cursor/skills/)';
+    case 'windsurf':
+      return 'Windsurf (.windsurf/skills/)';
     case 'antigravity':
       return 'Antigravity (.agent/skills/)';
+    case 'copilot':
+      return 'GitHub Copilot (.github/prompts/)';
+    case 'kiro':
+      return 'Kiro (.kiro/steering/)';
+    case 'codex':
+      return 'Codex CLI (.codex/skills/)';
+    case 'qoder':
+      return 'Qoder (.qoder/rules/)';
+    case 'roocode':
+      return 'Roo Code (.roo/commands/)';
+    case 'gemini':
+      return 'Gemini CLI (.gemini/skills/)';
+    case 'trae':
+      return 'Trae (.trae/skills/)';
+    case 'opencode':
+      return 'OpenCode (.opencode/skills/)';
+    case 'continue':
+      return 'Continue (.continue/skills/)';
+    case 'codebuddy':
+      return 'CodeBuddy (.codebuddy/skills/)';
     case 'all':
       return 'All AI assistants';
   }

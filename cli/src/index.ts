@@ -1,9 +1,9 @@
 import { Command } from 'commander';
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import { initCommand } from './commands/init.js';
 import { listCommand } from './commands/list.js';
 import { infoCommand } from './commands/info.js';
+import { versionsCommand } from './commands/versions.js';
+import { updateCommand } from './commands/update.js';
 import type { AIType } from './types/index.js';
 import { AI_TYPES } from './types/index.js';
 
@@ -22,6 +22,7 @@ program
   .option('-a, --ai <type>', `AI assistant type (${AI_TYPES.join(', ')})`)
   .option('-f, --force', 'Overwrite existing files')
   .option('-g, --global', 'Install to global directory')
+  .option('-o, --offline', 'Skip GitHub download, use bundled assets only')
   .action(async (options) => {
     if (options.ai && !AI_TYPES.includes(options.ai)) {
       console.error(`Invalid AI type: ${options.ai}`);
@@ -44,5 +45,15 @@ program
   .command('info')
   .description('Show skill information')
   .action(infoCommand);
+
+program
+  .command('versions')
+  .description('List available versions')
+  .action(versionsCommand);
+
+program
+  .command('update')
+  .description('Update to latest version')
+  .action(updateCommand);
 
 program.parse();

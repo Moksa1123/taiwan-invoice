@@ -4081,14 +4081,14 @@ var require_templates = __commonJS({
       }
       return results;
     }
-    function buildStyle(chalk5, styles) {
+    function buildStyle(chalk7, styles) {
       const enabled = {};
       for (const layer of styles) {
         for (const style of layer.styles) {
           enabled[style[0]] = layer.inverse ? null : style.slice(1);
         }
       }
-      let current = chalk5;
+      let current = chalk7;
       for (const [styleName, styles2] of Object.entries(enabled)) {
         if (!Array.isArray(styles2)) {
           continue;
@@ -4100,7 +4100,7 @@ var require_templates = __commonJS({
       }
       return current;
     }
-    module2.exports = (chalk5, temporary) => {
+    module2.exports = (chalk7, temporary) => {
       const styles = [];
       const chunks = [];
       let chunk = [];
@@ -4110,13 +4110,13 @@ var require_templates = __commonJS({
         } else if (style) {
           const string = chunk.join("");
           chunk = [];
-          chunks.push(styles.length === 0 ? string : buildStyle(chalk5, styles)(string));
+          chunks.push(styles.length === 0 ? string : buildStyle(chalk7, styles)(string));
           styles.push({ inverse, styles: parseStyle(style) });
         } else if (close) {
           if (styles.length === 0) {
             throw new Error("Found extraneous } in Chalk template literal");
           }
-          chunks.push(buildStyle(chalk5, styles)(chunk.join("")));
+          chunks.push(buildStyle(chalk7, styles)(chunk.join("")));
           chunk = [];
           styles.pop();
         } else {
@@ -4164,16 +4164,16 @@ var require_source = __commonJS({
       }
     };
     var chalkFactory = (options) => {
-      const chalk6 = {};
-      applyOptions(chalk6, options);
-      chalk6.template = (...arguments_) => chalkTag(chalk6.template, ...arguments_);
-      Object.setPrototypeOf(chalk6, Chalk.prototype);
-      Object.setPrototypeOf(chalk6.template, chalk6);
-      chalk6.template.constructor = () => {
+      const chalk8 = {};
+      applyOptions(chalk8, options);
+      chalk8.template = (...arguments_) => chalkTag(chalk8.template, ...arguments_);
+      Object.setPrototypeOf(chalk8, Chalk.prototype);
+      Object.setPrototypeOf(chalk8.template, chalk8);
+      chalk8.template.constructor = () => {
         throw new Error("`chalk.constructor()` is deprecated. Use `new chalk.Instance()` instead.");
       };
-      chalk6.template.Instance = ChalkClass;
-      return chalk6.template;
+      chalk8.template.Instance = ChalkClass;
+      return chalk8.template;
     };
     function Chalk(options) {
       return chalkFactory(options);
@@ -4284,7 +4284,7 @@ var require_source = __commonJS({
       return openAll + string + closeAll;
     };
     var template;
-    var chalkTag = (chalk6, ...strings) => {
+    var chalkTag = (chalk8, ...strings) => {
       const [firstString] = strings;
       if (!isArray(firstString) || !isArray(firstString.raw)) {
         return strings.join(" ");
@@ -4300,14 +4300,14 @@ var require_source = __commonJS({
       if (template === void 0) {
         template = require_templates();
       }
-      return template(chalk6, parts.join(""));
+      return template(chalk8, parts.join(""));
     };
     Object.defineProperties(Chalk.prototype, styles);
-    var chalk5 = Chalk();
-    chalk5.supportsColor = stdoutColor;
-    chalk5.stderr = Chalk({ level: stderrColor ? stderrColor.level : 0 });
-    chalk5.stderr.supportsColor = stderrColor;
-    module2.exports = chalk5;
+    var chalk7 = Chalk();
+    chalk7.supportsColor = stdoutColor;
+    chalk7.stderr = Chalk({ level: stderrColor ? stderrColor.level : 0 });
+    chalk7.stderr.supportsColor = stderrColor;
+    module2.exports = chalk7;
   }
 });
 
@@ -6271,19 +6271,19 @@ var require_is_unicode_supported = __commonJS({
 var require_log_symbols = __commonJS({
   "node_modules/log-symbols/index.js"(exports2, module2) {
     "use strict";
-    var chalk5 = require_source();
+    var chalk7 = require_source();
     var isUnicodeSupported = require_is_unicode_supported();
     var main = {
-      info: chalk5.blue("\u2139"),
-      success: chalk5.green("\u2714"),
-      warning: chalk5.yellow("\u26A0"),
-      error: chalk5.red("\u2716")
+      info: chalk7.blue("\u2139"),
+      success: chalk7.green("\u2714"),
+      warning: chalk7.yellow("\u26A0"),
+      error: chalk7.red("\u2716")
     };
     var fallback = {
-      info: chalk5.blue("i"),
-      success: chalk5.green("\u221A"),
-      warning: chalk5.yellow("\u203C"),
-      error: chalk5.red("\xD7")
+      info: chalk7.blue("i"),
+      success: chalk7.green("\u221A"),
+      warning: chalk7.yellow("\u203C"),
+      error: chalk7.red("\xD7")
     };
     module2.exports = isUnicodeSupported() ? main : fallback;
   }
@@ -9774,7 +9774,7 @@ var require_ora = __commonJS({
   "node_modules/ora/index.js"(exports2, module2) {
     "use strict";
     var readline = require("readline");
-    var chalk5 = require_source();
+    var chalk7 = require_source();
     var cliCursor = require_cli_cursor();
     var cliSpinners = require_cli_spinners();
     var logSymbols = require_log_symbols();
@@ -9971,7 +9971,7 @@ var require_ora = __commonJS({
         const { frames } = this.spinner;
         let frame = frames[this.frameIndex];
         if (this.color) {
-          frame = chalk5[this.color](frame);
+          frame = chalk7[this.color](frame);
         }
         this.frameIndex = ++this.frameIndex % frames.length;
         const fullPrefixText = typeof this.prefixText === "string" && this.prefixText !== "" ? this.prefixText + " " : "";
@@ -14967,7 +14967,23 @@ var import_ora = __toESM(require_ora());
 var import_prompts = __toESM(require_prompts3());
 
 // src/types/index.ts
-var AI_TYPES = ["claude", "cursor", "antigravity", "all"];
+var AI_TYPES = [
+  "claude",
+  "cursor",
+  "windsurf",
+  "antigravity",
+  "copilot",
+  "kiro",
+  "codex",
+  "qoder",
+  "roocode",
+  "gemini",
+  "trae",
+  "opencode",
+  "continue",
+  "codebuddy",
+  "all"
+];
 
 // src/utils/template.ts
 var import_promises = require("node:fs/promises");
@@ -14978,7 +14994,18 @@ function getAssetsDir() {
 var AI_TO_PLATFORM = {
   claude: "claude",
   cursor: "cursor",
-  antigravity: "antigravity"
+  windsurf: "windsurf",
+  antigravity: "antigravity",
+  copilot: "copilot",
+  kiro: "kiro",
+  codex: "codex",
+  qoder: "qoder",
+  roocode: "roocode",
+  gemini: "gemini",
+  trae: "trae",
+  opencode: "opencode",
+  continue: "continue",
+  codebuddy: "codebuddy"
 };
 async function exists(path) {
   try {
@@ -15075,8 +15102,41 @@ function detectAIType(cwd = process.cwd()) {
   if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".cursor"))) {
     detected.push("cursor");
   }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".windsurf"))) {
+    detected.push("windsurf");
+  }
   if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".agent"))) {
     detected.push("antigravity");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".github"))) {
+    detected.push("copilot");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".kiro"))) {
+    detected.push("kiro");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".codex"))) {
+    detected.push("codex");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".qoder"))) {
+    detected.push("qoder");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".roo"))) {
+    detected.push("roocode");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".gemini"))) {
+    detected.push("gemini");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".trae"))) {
+    detected.push("trae");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".opencode"))) {
+    detected.push("opencode");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".continue"))) {
+    detected.push("continue");
+  }
+  if ((0, import_node_fs.existsSync)((0, import_node_path2.join)(cwd, ".codebuddy"))) {
+    detected.push("codebuddy");
   }
   let suggested = null;
   if (detected.length === 1) {
@@ -15092,8 +15152,30 @@ function getAITypeDescription(aiType) {
       return "Claude Code (.claude/skills/)";
     case "cursor":
       return "Cursor (.cursor/skills/)";
+    case "windsurf":
+      return "Windsurf (.windsurf/skills/)";
     case "antigravity":
       return "Antigravity (.agent/skills/)";
+    case "copilot":
+      return "GitHub Copilot (.github/prompts/)";
+    case "kiro":
+      return "Kiro (.kiro/steering/)";
+    case "codex":
+      return "Codex CLI (.codex/skills/)";
+    case "qoder":
+      return "Qoder (.qoder/rules/)";
+    case "roocode":
+      return "Roo Code (.roo/commands/)";
+    case "gemini":
+      return "Gemini CLI (.gemini/skills/)";
+    case "trae":
+      return "Trae (.trae/skills/)";
+    case "opencode":
+      return "OpenCode (.opencode/skills/)";
+    case "continue":
+      return "Continue (.continue/skills/)";
+    case "codebuddy":
+      return "CodeBuddy (.codebuddy/skills/)";
     case "all":
       return "All AI assistants";
   }
@@ -15176,22 +15258,38 @@ async function listCommand() {
   console.log(import_chalk3.default.cyan("Available AI Assistants:"));
   console.log();
   const platforms = [
-    { key: "claude", project: ".claude/skills/taiwan-invoice/", global: "~/.claude/skills/" },
-    { key: "cursor", project: ".cursor/skills/taiwan-invoice/", global: "~/.cursor/skills/" },
-    { key: "antigravity", project: ".agent/skills/taiwan-invoice/", global: "~/.gemini/antigravity/global_skills/" }
+    { key: "claude", path: ".claude/skills/taiwan-invoice/" },
+    { key: "cursor", path: ".cursor/skills/taiwan-invoice/" },
+    { key: "windsurf", path: ".windsurf/skills/taiwan-invoice/" },
+    { key: "antigravity", path: ".agent/skills/taiwan-invoice/" },
+    { key: "copilot", path: ".github/prompts/taiwan-invoice/" },
+    { key: "kiro", path: ".kiro/steering/taiwan-invoice/" },
+    { key: "codex", path: ".codex/skills/taiwan-invoice/" },
+    { key: "qoder", path: ".qoder/rules/taiwan-invoice/" },
+    { key: "roocode", path: ".roo/commands/taiwan-invoice/" },
+    { key: "gemini", path: ".gemini/skills/taiwan-invoice/" },
+    { key: "trae", path: ".trae/skills/taiwan-invoice/" },
+    { key: "opencode", path: ".opencode/skills/taiwan-invoice/" },
+    { key: "continue", path: ".continue/skills/taiwan-invoice/" },
+    { key: "codebuddy", path: ".codebuddy/skills/taiwan-invoice/" }
   ];
   for (const platform of platforms) {
     const desc = getAITypeDescription(platform.key);
-    console.log(`  ${import_chalk3.default.green(platform.key.padEnd(15))} ${desc.split(" ")[0]} ${desc.split(" ")[1] || ""}`);
-    console.log(import_chalk3.default.dim(`                    Project: ${platform.project}`));
-    console.log(import_chalk3.default.dim(`                    Global:  ${platform.global}`));
-    console.log();
+    const name = desc.split(" (")[0];
+    console.log(`  ${import_chalk3.default.green(platform.key.padEnd(15))} ${name}`);
+    console.log(import_chalk3.default.dim(`                    ${platform.path}`));
   }
+  console.log();
   console.log(import_chalk3.default.cyan("Installation:"));
   console.log(import_chalk3.default.dim("  taiwan-invoice init --ai claude"));
   console.log(import_chalk3.default.dim("  taiwan-invoice init --ai cursor"));
-  console.log(import_chalk3.default.dim("  taiwan-invoice init --ai antigravity"));
+  console.log(import_chalk3.default.dim("  taiwan-invoice init --ai windsurf"));
+  console.log(import_chalk3.default.dim("  taiwan-invoice init --ai copilot"));
   console.log(import_chalk3.default.dim("  taiwan-invoice init --ai all"));
+  console.log();
+  console.log(import_chalk3.default.cyan("Other Commands:"));
+  console.log(import_chalk3.default.dim("  taiwan-invoice versions    List available versions"));
+  console.log(import_chalk3.default.dim("  taiwan-invoice update      Update to latest version"));
   console.log();
 }
 
@@ -15206,7 +15304,7 @@ async function infoCommand() {
   console.log(`  ${import_chalk4.default.dim("Version:")}     ${VERSION}`);
   console.log(`  ${import_chalk4.default.dim("Providers:")}   ECPay, SmilePay, Amego`);
   console.log(`  ${import_chalk4.default.dim("Features:")}    Issue, Void, Allowance, Query, Print`);
-  console.log(`  ${import_chalk4.default.dim("Platforms:")}   Claude Code, Cursor, Antigravity`);
+  console.log(`  ${import_chalk4.default.dim("Platforms:")}   14 AI assistants (Claude, Cursor, Windsurf, Copilot, etc.)`);
   console.log(`  ${import_chalk4.default.dim("License:")}     MIT`);
   console.log();
   console.log(import_chalk4.default.cyan("Links:"));
@@ -15216,11 +15314,97 @@ async function infoCommand() {
   console.log();
 }
 
-// src/index.ts
+// src/commands/versions.ts
+var import_chalk5 = __toESM(require_source());
+var import_ora2 = __toESM(require_ora());
 var VERSION2 = "2.0.0";
+var REPO_API = "https://api.github.com/repos/Moksa1123/taiwan-invoice/releases";
+async function versionsCommand() {
+  logger.title("Taiwan Invoice Skill - Available Versions");
+  const spinner = (0, import_ora2.default)("Fetching releases from GitHub...").start();
+  try {
+    const response = await fetch(REPO_API, {
+      headers: {
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "taiwan-invoice-skill-cli"
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status}`);
+    }
+    const releases = await response.json();
+    spinner.succeed("Fetched releases from GitHub");
+    console.log();
+    console.log(import_chalk5.default.cyan("Available Versions:"));
+    console.log();
+    if (releases.length === 0) {
+      console.log(import_chalk5.default.dim("  No releases found"));
+    } else {
+      for (const release of releases.slice(0, 10)) {
+        const date = new Date(release.published_at).toLocaleDateString();
+        const isCurrent = release.tag_name === `v${VERSION2}`;
+        const marker = isCurrent ? import_chalk5.default.green(" (current)") : "";
+        console.log(`  ${import_chalk5.default.green(release.tag_name.padEnd(12))} ${date}${marker}`);
+      }
+    }
+    console.log();
+    console.log(import_chalk5.default.cyan("Current CLI Version:"));
+    console.log(import_chalk5.default.dim(`  ${VERSION2}`));
+    console.log();
+  } catch (error) {
+    spinner.fail("Failed to fetch releases");
+    console.log();
+    console.log(import_chalk5.default.cyan("Current CLI Version:"));
+    console.log(import_chalk5.default.dim(`  ${VERSION2}`));
+    console.log();
+    console.log(import_chalk5.default.dim("  Unable to fetch remote versions. Check your internet connection."));
+    console.log();
+  }
+}
+
+// src/commands/update.ts
+var import_chalk6 = __toESM(require_source());
+var import_ora3 = __toESM(require_ora());
+var VERSION3 = "2.0.0";
+async function updateCommand() {
+  logger.title("Taiwan Invoice Skill - Update");
+  console.log(import_chalk6.default.cyan("Current Version:"));
+  console.log(import_chalk6.default.dim(`  ${VERSION3}`));
+  console.log();
+  const spinner = (0, import_ora3.default)("Checking for updates...").start();
+  try {
+    const response = await fetch("https://registry.npmjs.org/taiwan-invoice-skill/latest", {
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`npm registry error: ${response.status}`);
+    }
+    const data = await response.json();
+    const latestVersion = data.version;
+    if (latestVersion === VERSION3) {
+      spinner.succeed("You are already on the latest version!");
+    } else {
+      spinner.info(`New version available: ${latestVersion}`);
+      console.log();
+      console.log(import_chalk6.default.cyan("To update, run:"));
+      console.log(import_chalk6.default.dim("  npm install -g taiwan-invoice-skill@latest"));
+    }
+  } catch (error) {
+    spinner.warn("Unable to check for updates");
+    console.log();
+    console.log(import_chalk6.default.cyan("To update manually, run:"));
+    console.log(import_chalk6.default.dim("  npm install -g taiwan-invoice-skill@latest"));
+  }
+  console.log();
+}
+
+// src/index.ts
+var VERSION4 = "2.0.0";
 var program2 = new Command();
-program2.name("taiwan-invoice").description("CLI to install Taiwan E-Invoice skill for AI coding assistants").version(VERSION2);
-program2.command("init").description("Install Taiwan Invoice skill to current project").option("-a, --ai <type>", `AI assistant type (${AI_TYPES.join(", ")})`).option("-f, --force", "Overwrite existing files").option("-g, --global", "Install to global directory").action(async (options) => {
+program2.name("taiwan-invoice").description("CLI to install Taiwan E-Invoice skill for AI coding assistants").version(VERSION4);
+program2.command("init").description("Install Taiwan Invoice skill to current project").option("-a, --ai <type>", `AI assistant type (${AI_TYPES.join(", ")})`).option("-f, --force", "Overwrite existing files").option("-g, --global", "Install to global directory").option("-o, --offline", "Skip GitHub download, use bundled assets only").action(async (options) => {
   if (options.ai && !AI_TYPES.includes(options.ai)) {
     console.error(`Invalid AI type: ${options.ai}`);
     console.error(`Valid types: ${AI_TYPES.join(", ")}`);
@@ -15234,6 +15418,8 @@ program2.command("init").description("Install Taiwan Invoice skill to current pr
 });
 program2.command("list").description("List supported AI platforms").action(listCommand);
 program2.command("info").description("Show skill information").action(infoCommand);
+program2.command("versions").description("List available versions").action(versionsCommand);
+program2.command("update").description("Update to latest version").action(updateCommand);
 program2.parse();
 /*! Bundled license information:
 

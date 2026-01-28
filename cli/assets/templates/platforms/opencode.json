@@ -1,0 +1,18 @@
+{
+  "platform": "opencode",
+  "displayName": "OpenCode",
+  "installType": "full",
+  "folderStructure": {
+    "root": ".opencode",
+    "skillPath": "skills/taiwan-invoice",
+    "filename": "SKILL.md"
+  },
+  "frontmatter": null,
+  "sections": {
+    "examples": true,
+    "references": true,
+    "scripts": true
+  },
+  "title": "Taiwan E-Invoice Skill",
+  "description": "Comprehensive guide for Taiwan E-Invoice API integration. Supports ECPay, SmilePay, and Amego providers with B2C/B2B invoice operations."
+}

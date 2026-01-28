@@ -12,7 +12,18 @@ function getAssetsDir(): string {
 const AI_TO_PLATFORM: Record<string, string> = {
   claude: 'claude',
   cursor: 'cursor',
+  windsurf: 'windsurf',
   antigravity: 'antigravity',
+  copilot: 'copilot',
+  kiro: 'kiro',
+  codex: 'codex',
+  qoder: 'qoder',
+  roocode: 'roocode',
+  gemini: 'gemini',
+  trae: 'trae',
+  opencode: 'opencode',
+  continue: 'continue',
+  codebuddy: 'codebuddy',
 };
 
 async function exists(path: string): Promise<boolean> {

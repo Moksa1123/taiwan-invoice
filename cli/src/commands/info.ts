@@ -12,7 +12,7 @@ export async function infoCommand(): Promise<void> {
   console.log(`  ${chalk.dim('Version:')}     ${VERSION}`);
   console.log(`  ${chalk.dim('Providers:')}   ECPay, SmilePay, Amego`);
   console.log(`  ${chalk.dim('Features:')}    Issue, Void, Allowance, Query, Print`);
-  console.log(`  ${chalk.dim('Platforms:')}   Claude Code, Cursor, Antigravity`);
+  console.log(`  ${chalk.dim('Platforms:')}   14 AI assistants (Claude, Cursor, Windsurf, Copilot, etc.)`);
   console.log(`  ${chalk.dim('License:')}     MIT`);
   console.log();
   console.log(chalk.cyan('Links:'));
