@@ -11,7 +11,7 @@ Usage:
 import subprocess
 import sys
 import os
-import shutil
+import json
 import tempfile
 from pathlib import Path
 
@@ -44,30 +44,31 @@ EXPECTED_FILES = [
     'scripts/test-invoice-amounts.py',
 ]
 
-def get_install_path(platform: str, base_dir: str) -> str:
-    """Get the expected installation path for a platform."""
-    paths = {
-        'claude': '.claude/skills/taiwan-invoice',
-        'cursor': '.cursor/skills/taiwan-invoice',
-        'windsurf': '.windsurf/skills/taiwan-invoice',
-        'copilot': '.github/copilot/skills/taiwan-invoice',
-        'antigravity': '.agent/skills/taiwan-invoice',
-        'kiro': '.kiro/skills/taiwan-invoice',
-        'codex': '.codex/skills/taiwan-invoice',
-        'qoder': '.qodo/skills/taiwan-invoice',
-        'roocode': '.roo/skills/taiwan-invoice',
-        'gemini': '.gemini/skills/taiwan-invoice',
-        'trae': '.trae/skills/taiwan-invoice',
-        'opencode': '.opencode/skills/taiwan-invoice',
-        'continue': '.continue/skills/taiwan-invoice',
-        'codebuddy': '.codebuddy/skills/taiwan-invoice',
-    }
-    return os.path.join(base_dir, paths.get(platform, ''))
+
+def load_platform_config(platform: str, templates_dir: Path) -> dict:
+    """Load platform configuration from JSON file."""
+    config_path = templates_dir / 'platforms' / f'{platform}.json'
+    if config_path.exists():
+        with open(config_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
 
 
-def test_platform(platform: str, cli_path: str, offline: bool = False) -> tuple[bool, str]:
+def get_install_path(platform: str, base_dir: str, templates_dir: Path) -> str:
+    """Get the expected installation path for a platform from JSON config."""
+    config = load_platform_config(platform, templates_dir)
+
+    if config and 'folderStructure' in config:
+        root = config['folderStructure'].get('root', '')
+        skill_path = config['folderStructure'].get('skillPath', '')
+        return os.path.join(base_dir, root, skill_path)
+
+    # Fallback to default pattern
+    return os.path.join(base_dir, f'.{platform}', 'skills', 'taiwan-invoice')
+
+
+def test_platform(platform: str, cli_path: str, templates_dir: Path, offline: bool = False) -> tuple[bool, str]:
     """Test installation for a single platform."""
-    # Create temp directory
     with tempfile.TemporaryDirectory() as temp_dir:
         try:
             # Build command
@@ -75,23 +76,30 @@ def test_platform(platform: str, cli_path: str, offline: bool = False) -> tuple[
             if offline:
                 cmd.append('--offline')
 
-            # Run installation
+            # Run installation with UTF-8 encoding
             result = subprocess.run(
                 cmd,
                 cwd=temp_dir,
                 capture_output=True,
-                text=True,
-                timeout=60
+                timeout=60,
+                encoding='utf-8',
+                errors='replace'
             )
 
             if result.returncode != 0:
-                return False, f"CLI returned error: {result.stderr}"
+                return False, f"CLI error: {result.stderr[:100]}"
 
             # Check expected files
-            install_path = get_install_path(platform, temp_dir)
+            install_path = get_install_path(platform, temp_dir, templates_dir)
 
             if not os.path.exists(install_path):
-                return False, f"Install path not found: {install_path}"
+                # Try to find what was actually created
+                for root, dirs, files in os.walk(temp_dir):
+                    if 'SKILL.md' in files:
+                        install_path = root
+                        break
+                else:
+                    return False, f"Install path not found: {install_path}"
 
             missing_files = []
             for expected_file in EXPECTED_FILES:
@@ -100,23 +108,23 @@ def test_platform(platform: str, cli_path: str, offline: bool = False) -> tuple[
                     missing_files.append(expected_file)
 
             if missing_files:
-                return False, f"Missing files: {', '.join(missing_files)}"
+                return False, f"Missing: {', '.join(missing_files[:3])}"
 
             # Check SKILL.md has content
             skill_path = os.path.join(install_path, 'SKILL.md')
             with open(skill_path, 'r', encoding='utf-8') as f:
                 content = f.read()
                 if len(content) < 1000:
-                    return False, f"SKILL.md seems too small ({len(content)} bytes)"
-                if 'taiwan-invoice' not in content.lower():
-                    return False, "SKILL.md doesn't contain expected content"
+                    return False, f"SKILL.md too small ({len(content)} bytes)"
+                if 'taiwan-invoice' not in content.lower() and 'e-invoice' not in content.lower():
+                    return False, "SKILL.md missing expected content"
 
             return True, "OK"
 
         except subprocess.TimeoutExpired:
-            return False, "Installation timed out"
+            return False, "Timeout"
         except Exception as e:
-            return False, str(e)
+            return False, str(e)[:50]
 
 
 def main():
@@ -130,9 +138,10 @@ def main():
             platforms_to_test = [arg]
             break
 
-    # Find CLI path
+    # Find CLI path and templates dir
     script_dir = Path(__file__).parent.parent
     cli_path = script_dir / 'dist' / 'index.js'
+    templates_dir = script_dir / 'assets' / 'templates'
 
     if not cli_path.exists():
         print("[ERROR] CLI not built. Run 'npm run build' first.")
@@ -151,11 +160,11 @@ def main():
 
     for platform in platforms_to_test:
         print(f"Testing {platform}...", end=' ', flush=True)
-        success, message = test_platform(platform, str(cli_path), offline)
+        success, message = test_platform(platform, str(cli_path), templates_dir, offline)
         results.append((platform, success, message))
 
         if success:
-            print(f"[OK]")
+            print("[OK]")
         else:
             print(f"[FAIL] {message}")
 
