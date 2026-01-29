@@ -10,7 +10,8 @@
   "scriptPath": "skills/taiwan-invoice/scripts",
   "frontmatter": {
     "name": "taiwan-invoice",
-    "description": "Taiwan E-Invoice API integration specialist for ECPay, SmilePay, and Amego."
+    "description": "Taiwan E-Invoice API integration specialist for ECPay, SmilePay, and Amego.",
+    "user-invocable": "true"
   },
   "sections": {
     "examples": true,

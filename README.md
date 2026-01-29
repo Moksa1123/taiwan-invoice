@@ -81,9 +81,13 @@ taiwan-invoice init --ai codebuddy     # CodeBuddy (Tencent)
 
 ## 使用方式
 
-### 自動模式
+安裝後，在 AI 助手中輸入：
 
-Claude Code、Windsurf、Antigravity 等平台會自動偵測發票相關請求：
+```
+/taiwan-invoice 幫我產生 SmilePay B2B 發票開立程式碼
+```
+
+或直接描述需求（AI 會自動辨識）：
 
 ```
 幫我用綠界測試環境開立一張 1050 元的 B2C 發票
@@ -91,14 +95,6 @@ Claude Code、Windsurf、Antigravity 等平台會自動偵測發票相關請求�
 
 ```
 建立一個發票服務工廠，支援三家加值中心動態切換
-```
-
-### 斜線命令
-
-Cursor、Kiro、Copilot、Roo Code 使用斜線命令：
-
-```
-/taiwan-invoice 幫我產生 SmilePay B2B 發票開立程式碼
 ```
 
 ---
@@ -131,20 +127,20 @@ TotalAmount = 1050
 
 | 平台 | 說明 | 啟動方式 |
 |------|------|----------|
-| **Claude Code** | Anthropic 官方 CLI | 自動 |
+| **Claude Code** | Anthropic 官方 CLI | `/taiwan-invoice` |
 | **Cursor** | AI 程式編輯器 | `/taiwan-invoice` |
-| **Windsurf** | Codeium 編輯器 | 自動 |
+| **Windsurf** | Codeium 編輯器 | `/taiwan-invoice` |
 | **Copilot** | GitHub Copilot | `/taiwan-invoice` |
-| **Antigravity** | Google AI 助手 | 自動 |
+| **Antigravity** | Google AI 助手 | `/taiwan-invoice` |
 | **Kiro** | AWS AI 助手 | `/taiwan-invoice` |
-| **Codex** | OpenAI CLI | 自動 |
-| **Qoder** | Qodo AI 助手 | 自動 |
+| **Codex** | OpenAI CLI | `/taiwan-invoice` |
+| **Qoder** | Qodo AI 助手 | `/taiwan-invoice` |
 | **RooCode** | VSCode 擴充 | `/taiwan-invoice` |
-| **Gemini CLI** | Google Gemini | 自動 |
-| **Trae** | ByteDance AI | 自動 |
-| **OpenCode** | 開源 AI 助手 | 自動 |
-| **Continue** | 開源 AI 助手 | 自動 |
-| **CodeBuddy** | Tencent AI | 自動 |
+| **Gemini CLI** | Google Gemini | `/taiwan-invoice` |
+| **Trae** | ByteDance AI | `/taiwan-invoice` |
+| **OpenCode** | 開源 AI 助手 | `/taiwan-invoice` |
+| **Continue** | 開源 AI 助手 | `/taiwan-invoice` |
+| **CodeBuddy** | Tencent AI | `/taiwan-invoice` |
 
 ---
 

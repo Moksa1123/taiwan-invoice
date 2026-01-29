@@ -8,7 +8,11 @@
     "filename": "SKILL.md"
   },
   "scriptPath": "steering/taiwan-invoice/scripts",
-  "frontmatter": null,
+  "frontmatter": {
+    "name": "taiwan-invoice",
+    "description": "Taiwan E-Invoice API integration for ECPay, SmilePay, and Amego.",
+    "user-invocable": "true"
+  },
   "sections": {
     "examples": true,
     "references": true,

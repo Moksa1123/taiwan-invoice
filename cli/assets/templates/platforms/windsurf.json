@@ -10,7 +10,8 @@
   "scriptPath": "skills/taiwan-invoice/scripts",
   "frontmatter": {
     "name": "taiwan-invoice",
-    "description": "Taiwan E-Invoice API integration specialist for ECPay, SmilePay, and Amego. Provides B2C/B2B invoice issuance, void, allowance, query, and print functionality."
+    "description": "Taiwan E-Invoice API integration specialist for ECPay, SmilePay, and Amego. Provides B2C/B2B invoice issuance, void, allowance, query, and print functionality.",
+    "user-invocable": "true"
   },
   "sections": {
     "examples": true,
