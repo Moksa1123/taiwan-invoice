@@ -1,6 +1,6 @@
 {
   "name": "taiwan-payment-skill",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AI-powered Taiwan Payment Gateway integration toolkit for Claude Code and other AI coding assistants",
   "keywords": [
     "taiwan",
@@ -32,12 +32,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Moksa1123/taiwan-payment.git"
+    "url": "git+https://github.com/Moksa1123/taiwan-invoice.git"
   },
   "bugs": {
-    "url": "https://github.com/Moksa1123/taiwan-payment/issues"
+    "url": "https://github.com/Moksa1123/taiwan-invoice/issues"
   },
-  "homepage": "https://github.com/Moksa1123/taiwan-payment#readme",
+  "homepage": "https://github.com/Moksa1123/taiwan-invoice#readme",
   "author": "Moksa1123",
   "license": "MIT",
   "dependencies": {

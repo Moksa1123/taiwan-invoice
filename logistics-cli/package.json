@@ -1,6 +1,6 @@
 {
   "name": "taiwan-logistics-skill",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI to install Taiwan Logistics skill for AI coding assistants",
   "bin": {
     "taiwan-logistics": "./dist/index.js"
@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Moksa1123/taiwan-logistics.git"
+    "url": "git+https://github.com/Moksa1123/taiwan-invoice.git"
   },
   "bugs": {
-    "url": "https://github.com/Moksa1123/taiwan-logistics/issues"
+    "url": "https://github.com/Moksa1123/taiwan-invoice/issues"
   },
-  "homepage": "https://github.com/Moksa1123/taiwan-logistics#readme",
+  "homepage": "https://github.com/Moksa1123/taiwan-invoice#readme",
   "dependencies": {
     "chalk": "^4.1.2",
     "cli-progress": "^3.12.0",
