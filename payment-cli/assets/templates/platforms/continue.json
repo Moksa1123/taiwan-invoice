@@ -1,0 +1,25 @@
+{
+  "platform": "continue",
+  "displayName": "Continue",
+  "installType": "full",
+  "folderStructure": {
+    "root": ".continue",
+    "skillPath": "skills/taiwan-payment",
+    "filename": "SKILL.md",
+    "globalRoot": "~/.continue"
+  },
+  "frontmatter": {
+    "name": "taiwan-payment",
+    "description": "Taiwan Payment API integration specialist for ECPay, NewebPay, and PAYUNi payment gateways. Use when developing payment systems, implementing credit card, ATM, CVS, or e-wallet payments, or working with Taiwan payment gateway APIs. Handles encryption (SHA256, AES-256-CBC, AES-256-GCM), API requests, and service provider differences.",
+    "user-invocable": "true"
+  },
+  "sections": {
+    "examples": true,
+    "references": true,
+    "scripts": true,
+    "quickReference": false
+  },
+  "title": "Taiwan Payment Development Skill",
+  "description": "Comprehensive guide for Taiwan Payment Gateway integration (ECPay, NewebPay, PAYUNi)",
+  "skillOrWorkflow": "Skill"
+}

@@ -1,0 +1,11 @@
+logistics_type,logistics_sub_type,name_zh,provider,type,collection_available,max_amount,size_limit,temperature,notes
+CVS,UNIMART,7-11 B2C,7-11,cvs_b2c,true,20000,45x30x30cm,常溫,大宗寄倉
+CVS,UNIMARTC2C,7-11 店到店,7-11,cvs_c2c,true,20000,45x30x30cm,常溫,C2C 交貨便
+CVS,FAMI,全家 B2C,全家,cvs_b2c,true,20000,45x30x30cm,常溫,大宗寄倉
+CVS,FAMIC2C,全家店到店,全家,cvs_c2c,true,20000,45x30x30cm,常溫,C2C 店到店
+CVS,HILIFE,萊爾富 B2C,萊爾富,cvs_b2c,true,20000,45x30x30cm,常溫,大宗寄倉
+CVS,HILIFEC2C,萊爾富店到店,萊爾富,cvs_c2c,true,20000,45x30x30cm,常溫,C2C 店到店
+CVS,OKMART,OK B2C,OK,cvs_b2c,true,20000,45x30x30cm,常溫,大宗寄倉
+CVS,OKMARTC2C,OK 店到店,OK,cvs_c2c,true,20000,45x30x30cm,常溫,C2C 店到店
+Home,TCAT,黑貓宅急便,黑貓,home,false,200000,150cm,常溫/冷藏/冷凍,宅配到府
+Home,ECAN,宅配通,宅配通,home,false,100000,120cm,常溫,常溫宅配

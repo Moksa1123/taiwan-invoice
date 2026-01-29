@@ -1,0 +1,60 @@
+{
+  "name": "taiwan-payment-skill",
+  "version": "1.0.1",
+  "description": "AI-powered Taiwan Payment Gateway integration toolkit for Claude Code and other AI coding assistants",
+  "keywords": [
+    "taiwan",
+    "payment",
+    "ecpay",
+    "newebpay",
+    "payuni",
+    "金流",
+    "claude",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "ai-skill",
+    "payment-gateway"
+  ],
+  "main": "dist/index.js",
+  "bin": {
+    "taiwan-payment": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "assets"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js --watch",
+    "prepublishOnly": "npm run build",
+    "test": "node dist/index.js --help"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Moksa1123/taiwan-payment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Moksa1123/taiwan-payment/issues"
+  },
+  "homepage": "https://github.com/Moksa1123/taiwan-payment#readme",
+  "author": "Moksa1123",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-progress": "^3.12.0",
+    "commander": "^11.1.0",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.6",
+    "@types/node": "^22.10.1",
+    "@types/prompts": "^2.4.9",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

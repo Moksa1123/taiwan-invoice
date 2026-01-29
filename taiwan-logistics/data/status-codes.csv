@@ -1,0 +1,14 @@
+code,status_zh,status_en,category,description,next_action
+300,訂單建立成功,Order Created,success,物流訂單已成功建立,等待出貨
+310,訂單取消,Order Cancelled,cancelled,訂單已取消,
+2030,已交寄,Package Shipped,in_transit,商品已交給物流商,等待配送
+2063,配達完成,Delivered,delivered,宅配已送達收件人,
+2067,消費者取貨完成,Pickup Completed,completed,消費者已至超商取貨,
+2073,退貨中,Return in Progress,returning,退貨流程進行中,
+2074,退貨完成,Return Completed,returned,退貨流程已完成,
+2030,包裹已到店,Arrived at Store,at_store,包裹已送達指定門市,通知取貨
+2031,包裹已取件,Picked Up by Carrier,picked_up,物流商已取件,
+2032,轉運中,In Transit,in_transit,包裹配送中,
+2061,配達失敗,Delivery Failed,failed,配送失敗,聯繫收件人
+2070,包裹已退回,Package Returned,returned,包裹已退回寄件人,
+3001,系統錯誤,System Error,error,系統發生錯誤,聯繫客服

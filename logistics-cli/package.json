@@ -1,0 +1,58 @@
+{
+  "name": "taiwan-logistics-skill",
+  "version": "1.0.1",
+  "description": "CLI to install Taiwan Logistics skill for AI coding assistants",
+  "bin": {
+    "taiwan-logistics": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "assets"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "taiwan",
+    "logistics",
+    "shipping",
+    "ecpay",
+    "newebpay",
+    "payuni",
+    "claude",
+    "claude-code",
+    "cursor",
+    "antigravity",
+    "ai-skill",
+    "agent-skills",
+    "coding-assistant"
+  ],
+  "author": "Moksa1123",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moksa1123/taiwan-logistics.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Moksa1123/taiwan-logistics/issues"
+  },
+  "homepage": "https://github.com/Moksa1123/taiwan-logistics#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-progress": "^3.12.0",
+    "commander": "^11.1.0",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.6",
+    "@types/node": "^22.10.1",
+    "@types/prompts": "^2.4.9",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,20 @@
+provider,code,message_zh,message_en,category,severity,solution
+ecpay,1,交易成功,Success,success,info,
+ecpay,10100001,參數格式錯誤,Invalid Parameter,validation,error,檢查參數格式
+ecpay,10100002,商店代號不存在,Merchant Not Found,auth,error,確認 MerchantID
+ecpay,10100003,訂單編號重複,Duplicate Order,validation,error,使用唯一訂單編號
+ecpay,10100050,交易金額錯誤,Invalid Amount,validation,error,確認金額為正整數
+ecpay,10100058,CheckMacValue 錯誤,CheckMacValue Error,auth,error,重新計算檢查碼
+ecpay,10100248,交易被拒絕,Transaction Rejected,payment,error,聯繫發卡銀行
+ecpay,10100251,卡片過期,Card Expired,payment,error,確認卡片效期
+ecpay,10100252,餘額不足,Insufficient Balance,payment,error,確認額度或餘額
+ecpay,10100254,交易受限,Transaction Restricted,payment,error,聯繫發卡銀行
+ecpay,10100255,掛失卡,Lost Card,payment,error,使用其他卡片
+ecpay,10100256,偽卡,Fraudulent Card,payment,error,使用其他卡片
+ecpay,10300066,交易待確認,Pending Confirmation,payment,warning,至後台確認
+newebpay,SUCCESS,交易成功,Success,success,info,
+newebpay,TRA10001,參數錯誤,Parameter Error,validation,error,檢查參數
+newebpay,TRA10014,商店代號錯誤,Invalid Merchant,auth,error,確認商店代號
+newebpay,TRA10027,檢查碼錯誤,CheckValue Error,auth,error,重新計算檢查碼
+newebpay,TRA20001,交易失敗,Transaction Failed,payment,error,稍後重試
+newebpay,TRA20014,交易逾時,Transaction Timeout,payment,error,重新交易

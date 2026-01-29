@@ -1,0 +1,18 @@
+issue,symptom,cause,solution,provider,severity
+CheckMacValue 錯誤,回傳 10100058 或 CheckValue Error,參數排序錯誤 | URL Encode 不正確 | 編碼問題,重新檢查 CheckMacValue 計算流程 | 確認 URL Encode 使用 lowercase | 移除 CheckMacValue 本身再計算,ecpay/newebpay,high
+訂單編號重複,回傳 10100003 或訂單已存在,使用相同的 MerchantTradeNo,每筆訂單使用唯一編號 | 建議加入時間戳 | 長度限制 20 字元,ecpay/newebpay/payuni,high
+金額計算錯誤,回傳金額驗算錯誤,金額包含小數 | 金額為負數 | 金額為 0,確保金額為正整數 | 移除小數點 | 最小金額 1 元,ecpay/newebpay/payuni,high
+交易描述包含特殊字元,參數錯誤或亂碼,未進行 URL Encode | 包含特殊符號,使用 urlencode() 編碼 TradeDesc | 避免 & = # 等符號,ecpay/newebpay,medium
+AES 加密失敗,NewebPay TradeInfo 加密錯誤,Key/IV 長度錯誤 | Padding 錯誤 | 編碼問題,確認 HashKey 32 bytes | HashIV 16 bytes | 使用 PKCS7 padding,newebpay,high
+AES-GCM 加密失敗,PayUNi 加密錯誤,Nonce 錯誤 | Tag 未附加 | 編碼問題,確認 IV 作為 nonce | 加密後附加 tag (16 bytes) | 總長度為 encrypted + tag,payuni,high
+收不到付款通知,ReturnURL 未收到通知,URL 不是 HTTPS | 防火牆阻擋 | 回應格式錯誤,確認 ReturnURL 使用 HTTPS | 檢查防火牆 | 回應 "1|OK",ecpay/newebpay/payuni,high
+測試卡無法付款,測試環境刷卡失敗,使用真實卡號 | 測試卡格式錯誤,使用官方提供的測試卡號 | ECPay: 4311-9522-2222-2222 | NewebPay: 4000-2211-1111-1111,ecpay/newebpay,medium
+信用卡交易失敗,顯示交易被拒絕,餘額不足 | 卡片過期 | 銀行風控,請客戶確認卡片狀態 | 聯繫發卡銀行 | 使用其他卡片,ecpay/newebpay/payuni,medium
+ATM 虛擬帳號未產生,ATM 付款未產生帳號,參數設定錯誤 | ExpireDate 格式錯誤,確認 ChoosePayment=ATM | 設定正確的 ExpireDate (yyyy/MM/dd) | 長度 3-60 天,ecpay/newebpay,medium
+超商代碼未產生,CVS 付款未產生代碼,參數設定錯誤 | Desc 長度超過,確認 ChoosePayment=CVS | Desc 限制 20 字元 | 設定 StoreExpireDate,ecpay/newebpay,medium
+定期定額建立失敗,週期扣款設定失敗,參數不完整 | 週期設定錯誤,確認 PeriodAmount/PeriodType/Frequency/ExecTimes 都有填 | PeriodType: D/M/Y,ecpay/newebpay,high
+查詢訂單失敗,QueryTradeInfo 無資料,訂單尚未付款 | MerchantTradeNo 錯誤,確認訂單已付款 | 檢查訂單編號正確性 | 測試環境查測試訂單,ecpay/newebpay/payuni,medium
+請款退款失敗,DoAction 失敗,訂單狀態不符 | 金額錯誤 | 超過期限,確認訂單已授權 | 退款金額不可超過原金額 | 注意請款期限,ecpay/newebpay/payuni,high
+跨域問題,前端導向付款頁失敗,CORS 限制 | 使用 AJAX,使用 Form POST 方式導向 | 不可使用 AJAX | 需整頁跳轉,ecpay/newebpay,medium
+商店代號錯誤,回傳商店不存在,MerchantID 錯誤 | 測試正式環境混用,確認 MerchantID 正確 | 測試環境用測試商店代號 | 正式環境用正式商店代號,ecpay/newebpay/payuni,high
+時間格式錯誤,MerchantTradeDate 格式錯誤,日期格式不符 | 時區問題,使用 yyyy/MM/dd HH:mm:ss 格式 | 使用伺服器時區 | 不可超過當前時間太多,ecpay/newebpay,medium

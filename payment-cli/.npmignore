@@ -1,0 +1,6 @@
+src/
+scripts/
+tsconfig.json
+*.log
+.DS_Store
+test-install/

@@ -1,0 +1,24 @@
+method_code,method_zh,method_en,ecpay_code,newebpay_code,payuni_code,min_amount,max_amount,settlement_days,fee_type,notes
+credit,信用卡,Credit Card,Credit,CREDIT,credit,1,,2-3,percentage,一次付清
+credit_installment,信用卡分期,Credit Installment,Credit+CreditInstallment,INST,credit_inst,1000,,依期數,percentage,"3/6/12/18/24/30期"
+credit_periodic,信用卡定期,Credit Periodic,Credit+Period,,,100,,2-3,percentage,週期扣款
+credit_red,信用卡紅利,Credit Red,CreditRed,CreditRed,,1,,2-3,percentage,紅利折抵
+unionpay,銀聯卡,UnionPay,UnionPay,UNIONPAY,,1,,2-3,percentage,需另申請
+creditae,美國運通卡,AMEX,,CREDITAE,,1,,2-3,percentage,需另申請
+webatm,網路ATM,WebATM,WebATM,WEBATM,webatm,1,49999,1,fixed,即時轉帳
+atm,ATM虛擬帳號,ATM Virtual Account,ATM,VACC,atm,1,49999,1-3,fixed,產生繳費帳號
+cvs,超商代碼,CVS Code,CVS,CVS,cvs,30,20000,1-3,fixed,至超商繳費
+barcode,超商條碼,CVS Barcode,BARCODE,BARCODE,,20,40000,1-3,fixed,產生條碼
+applepay,Apple Pay,Apple Pay,ApplePay,APPLEPAY,ApplePay,1,,2-3,percentage,需申請
+googlepay,Google Pay,Google Pay,,ANDROIDPAY,GooglePay,1,,2-3,percentage,需申請
+samsungpay,Samsung Pay,Samsung Pay,,SAMSUNGPAY,SamsungPay,1,,2-3,percentage,需申請
+linepay,LINE Pay,LINE Pay,,LINEPAY,LinePay,1,,2-3,percentage,需申請
+esunwallet,玉山 Wallet,E.SUN Wallet,,ESUNWALLET,,1,,2-3,percentage,需申請
+taiwanpay,台灣 Pay,Taiwan Pay,,TAIWANPAY,,1,49999,2-3,percentage,需申請
+bitopay,BitoPay,BitoPay,,BITOPAY,,100,49999,2-3,percentage,加密貨幣
+twqr,TWQR,TWQR,TWQR,TWQR,TWQR,1,,2-3,percentage,台灣Pay QR Code
+bnpl,無卡分期,BNPL,BNPL,,,50,300000,依方案,percentage,先買後付
+aftee,AFTEE先享後付,AFTEE,,,AFTEE,1,,2-3,percentage,PayUNi專屬
+icash,愛金卡,iCash,,,iCash,1,,2-3,percentage,PayUNi專屬
+ezpalipay,簡單付支付寶,Alipay,,EZPALIPAY,,1,,2-3,percentage,跨境支付
+ezpwechat,簡單付微信,WeChat Pay,,EZPWECHAT,,1,,2-3,percentage,跨境支付

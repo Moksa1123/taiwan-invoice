@@ -1,0 +1,15 @@
+field_name,field_zh,ecpay_name,newebpay_name,payuni_name,type,required,max_length,format,notes
+merchant_id,商店代號,MerchantID,MerchantID,MerID,string,true,10,,
+order_id,訂單編號,MerchantTradeNo,MerchantOrderNo,MerTradeNo,string,true,20,英數字,需唯一
+order_date,訂單日期,MerchantTradeDate,TimeStamp,TradeTime,string,true,20,yyyy/MM/dd HH:mm:ss,
+amount,交易金額,TotalAmount,Amt,TradeAmt,integer,true,,,無小數
+description,交易描述,TradeDesc,ItemDesc,ProdDesc,string,true,200,,需 URL Encode
+item_name,商品名稱,ItemName,ItemDesc,ProdDesc,string,true,400,,多項用#分隔
+return_url,背景通知,ReturnURL,NotifyURL,NotifyURL,string,true,200,URL,
+client_back_url,前台返回,ClientBackURL,ReturnURL,ReturnURL,string,false,200,URL,
+payment_type,付款方式,ChoosePayment,PaymentType,PayType,string,true,20,,
+check_value,檢查碼,CheckMacValue,CheckValue,CheckSum,string,true,,,SHA256
+encrypt_type,加密類型,EncryptType,Version,Version,string,true,,,固定值
+trade_no,交易編號,TradeNo,TradeNo,PayUniTradeNo,string,false,20,,平台回傳
+rtn_code,回傳代碼,RtnCode,Status,Status,string,false,10,,
+rtn_msg,回傳訊息,RtnMsg,Message,Message,string,false,200,,
