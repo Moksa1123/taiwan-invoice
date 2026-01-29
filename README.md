@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/providers-9-success?style=flat-square" alt="9 Providers">
   <img src="https://img.shields.io/badge/platforms-14-blue?style=flat-square" alt="14 Platforms">
   <img src="https://img.shields.io/badge/quality-production--ready-green?style=flat-square" alt="Production Ready">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/Moksa1123/claude-skills?style=flat-square" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Moksa1123/taiwan-ecommerce-toolkit?style=flat-square" alt="License"></a>
 </p>
 
 <p align="center">
@@ -185,7 +185,7 @@ python scripts/search.py "B2B 稅額計算" --domain tax
 ## 專案結構
 
 ```
-claude-skills/
+taiwan-ecommerce-toolkit/
 ├── README.md                      # 本文件 (總覽)
 ├── LICENSE
 │
@@ -456,8 +456,8 @@ python taiwan-logistics/scripts/generate-logistics-service.py PAYUNi --output ts
 
 ```bash
 # 1. Clone 專案
-git clone https://github.com/Moksa1123/claude-skills.git
-cd claude-skills
+git clone https://github.com/Moksa1123/taiwan-ecommerce-toolkit.git
+cd taiwan-ecommerce-toolkit
 
 # 2. 建立功能分支
 git checkout -b feat/your-feature
