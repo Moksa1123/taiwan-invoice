@@ -176,8 +176,8 @@ python scripts/test_payment.py all
 ## 功能特色
 
 - 完整 API 文檔 (ECPay, NewebPay, PAYUNi)
-- BM25 搜索引擎 (311 行)
-- 智能推薦系統 (373 行)
+- BM25 搜索引擎
+- 智能推薦系統
 - 9 組完整代碼範例 (TypeScript/Python)
 - 7 個 CSV 數據檔 (易於維護)
 - 加密實作指南 (SHA256, AES-CBC, AES-GCM)

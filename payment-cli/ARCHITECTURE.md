@@ -125,7 +125,7 @@ npm publish
 - **src/index.ts**: CLI entry point with Commander.js
 - **src/commands/init.ts**: Installation logic with template rendering
 - **src/utils/template.ts**: Template engine with variable substitution
-- **assets/templates/base/skill-content.md**: Base skill template (851 lines)
+- **assets/templates/base/skill-content.md**: Base skill template
 - **scripts/build.js**: esbuild configuration for single-file output
 
 ## Build Process

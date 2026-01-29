@@ -191,25 +191,25 @@ claude-skills/
 │
 ├── taiwan-invoice/                # 電子發票核心內容 (Source of Truth)
 │   ├── README.md                  # 發票專案說明
-│   ├── SKILL.md                   # 1100+ 行
-│   ├── EXAMPLES.md                # 1500+ 行
+│   ├── SKILL.md                   # AI 技能文檔
+│   ├── EXAMPLES.md                # 程式碼範例
 │   ├── references/                # API 文件
 │   ├── scripts/                   # Python 智能工具
-│   └── data/                      # 6 個 CSV 數據檔
+│   └── data/                      # CSV 數據檔
 │
 ├── taiwan-payment/                # 金流整合核心內容 (Source of Truth)
 │   ├── README.md                  # 金流專案說明
-│   ├── SKILL.md                   # 850+ 行
-│   ├── EXAMPLES.md                # 1400+ 行
+│   ├── SKILL.md                   # AI 技能文檔
+│   ├── EXAMPLES.md                # 程式碼範例
 │   ├── references/                # API 文件
 │   ├── examples/                  # 生產級 Python 範例
 │   ├── scripts/                   # Python 智能工具
-│   └── data/                      # 7 個 CSV 數據檔
+│   └── data/                      # CSV 數據檔
 │
 ├── taiwan-logistics/              # 物流串接核心內容 (Source of Truth)
 │   ├── README.md                  # 物流專案說明
-│   ├── SKILL.md                   # 2300+ 行
-│   ├── EXAMPLES.md                # 3100+ 行
+│   ├── SKILL.md                   # AI 技能文檔
+│   ├── EXAMPLES.md                # 程式碼範例
 │   ├── references/                # API 文件
 │   ├── examples/                  # 生產級 Python 範例
 │   ├── scripts/                   # Python 智能工具
@@ -319,17 +319,17 @@ taiwan-invoice init --ai all           # 全部安裝
 
 企業級程式碼實作，遵循嚴格開發規範：
 
-- [ecpay-payment-example.py](taiwan-payment/examples/ecpay-payment-example.py) - ECPay 金流整合 (509 行)
-- [newebpay-payment-example.py](taiwan-payment/examples/newebpay-payment-example.py) - NewebPay MPG 整合 (382 行)
-- [payuni-payment-example.py](taiwan-payment/examples/payuni-payment-example.py) - PAYUNi 統一金流 (377 行)
+- [ecpay-payment-example.py](taiwan-payment/examples/ecpay-payment-example.py) - ECPay 金流整合
+- [newebpay-payment-example.py](taiwan-payment/examples/newebpay-payment-example.py) - NewebPay MPG 整合
+- [payuni-payment-example.py](taiwan-payment/examples/payuni-payment-example.py) - PAYUNi 統一金流
 
 ### 物流串接範例
 
 完整的超商物流 (CVS) 整合實作：
 
 - [ECPay CVS Python](taiwan-logistics/EXAMPLES.md#ecpay-cvs-python) - 綠界 C2C 物流
-- [newebpay-logistics-cvs-example.py](taiwan-logistics/examples/newebpay-logistics-cvs-example.py) - 藍新超商物流 (521 行)
-- [payuni-logistics-cvs-example.py](taiwan-logistics/examples/payuni-logistics-cvs-example.py) - 統一超商物流 (581 行)
+- [newebpay-logistics-cvs-example.py](taiwan-logistics/examples/newebpay-logistics-cvs-example.py) - 藍新超商物流
+- [payuni-logistics-cvs-example.py](taiwan-logistics/examples/payuni-logistics-cvs-example.py) - 統一超商物流
 
 ### 程式碼規範
 

@@ -27,17 +27,17 @@ python3 taiwan-payment/scripts/test_payment.py [--platform <platform>]
 
 ```
 taiwan-payment/                     # Source of Truth
-├── SKILL.md                        # Main skill documentation (857 lines)
-├── EXAMPLES.md                     # Code examples and patterns (1425 lines)
+├── SKILL.md                        # Main skill documentation
+├── EXAMPLES.md                     # Code examples and patterns
 ├── references/                     # API documentation
 │   ├── ecpay-payment-api.md
 │   ├── newebpay-payment-api.md
 │   └── payuni-payment-api.md
 ├── scripts/                        # Utility scripts
-│   ├── core.py                     # BM25 search engine (311 lines)
-│   ├── recommend.py                # Recommendation system (373 lines)
+│   ├── core.py                     # BM25 search engine
+│   ├── recommend.py                # Recommendation system
 │   ├── search.py                   # Search CLI (150+ lines)
-│   └── test_payment.py             # Connection testing (359 lines)
+│   └── test_payment.py             # Connection testing
 └── data/                           # Data-driven architecture (7 CSVs)
     ├── providers.csv               # 3 providers with details
     ├── operations.csv              # 8 API operations

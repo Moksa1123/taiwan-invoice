@@ -194,8 +194,8 @@ Version: {{VERSION}}
 The logistics skill includes high-quality Python examples following strict coding standards:
 
 - **ECPay CVS**: Complete C2C logistics with store map
-- **NewebPay CVS**: newebpay-logistics-cvs-example.py (521 lines)
-- **PAYUNi CVS**: payuni-logistics-cvs-example.py (581 lines)
+- **NewebPay CVS**: newebpay-logistics-cvs-example.py
+- **PAYUNi CVS**: payuni-logistics-cvs-example.py
 
 All examples include:
 - Dataclass structures with type hints
