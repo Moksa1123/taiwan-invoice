@@ -129,18 +129,18 @@ TotalAmount = 1050
 |------|------|----------|
 | **Claude Code** | Anthropic 官方 CLI | `/taiwan-invoice` |
 | **Cursor** | AI 程式編輯器 | `/taiwan-invoice` |
-| **Windsurf** | Codeium 編輯器 | `/taiwan-invoice` |
+| **Windsurf** | Codeium 編輯器 | 自動 |
 | **Copilot** | GitHub Copilot | `/taiwan-invoice` |
-| **Antigravity** | Google AI 助手 | `/taiwan-invoice` |
+| **Antigravity** | Google AI 助手 | 自動 |
 | **Kiro** | AWS AI 助手 | `/taiwan-invoice` |
-| **Codex** | OpenAI CLI | `/taiwan-invoice` |
-| **Qoder** | Qodo AI 助手 | `/taiwan-invoice` |
+| **Codex** | OpenAI CLI | 自動 |
+| **Qoder** | Qodo AI 助手 | 自動 |
 | **RooCode** | VSCode 擴充 | `/taiwan-invoice` |
-| **Gemini CLI** | Google Gemini | `/taiwan-invoice` |
-| **Trae** | ByteDance AI | `/taiwan-invoice` |
-| **OpenCode** | 開源 AI 助手 | `/taiwan-invoice` |
-| **Continue** | 開源 AI 助手 | `/taiwan-invoice` |
-| **CodeBuddy** | Tencent AI | `/taiwan-invoice` |
+| **Gemini CLI** | Google Gemini | 自動 |
+| **Trae** | ByteDance AI | 自動 |
+| **OpenCode** | 開源 AI 助手 | 自動 |
+| **Continue** | 開源 AI 助手 | 自動 |
+| **CodeBuddy** | Tencent AI | 自動 |
 
 ---
 
