@@ -15,7 +15,7 @@ interface InitOptions {
 }
 
 export async function initCommand(options: InitOptions): Promise<void> {
-  logger.title('Taiwan Invoice Skill Installer');
+  logger.title('Taiwan Logistics Skill Installer');
 
   let aiType = options.ai;
 
@@ -105,13 +105,13 @@ export async function initCommand(options: InitOptions): Promise<void> {
     });
 
     console.log();
-    logger.success('Taiwan Invoice Skill installed successfully!');
+    logger.success('Taiwan Logistics Skill installed successfully!');
 
     // Next steps
     console.log();
     console.log(chalk.bold('Next steps:'));
     console.log(chalk.dim('  1. Restart your AI coding assistant'));
-    console.log(chalk.dim('  2. Try: "Help me integrate ECPay invoice API"'));
+    console.log(chalk.dim('  2. Try: "Help me integrate ECPay logistics API"'));
     console.log();
   } catch (error) {
     logger.error('Installation failed');
