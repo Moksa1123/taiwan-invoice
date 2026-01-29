@@ -92,17 +92,17 @@ HashIV:                EkRm7iFT261dpevs
 
 | 參數 | 類型 | 長度 | 必填 | 說明 |
 |------|------|------|------|------|
-| `MerchantID` | String | 10 | ✓ | 商店代號 |
-| `MerchantTradeNo` | String | 20 | ✓ | 訂單編號，需唯一，僅英數字 |
-| `MerchantTradeDate` | String | 20 | ✓ | 交易時間 `yyyy/MM/dd HH:mm:ss` |
-| `PaymentType` | String | 20 | ✓ | 固定值 `aio` |
-| `TotalAmount` | Integer | - | ✓ | 金額，整數，無小數點 |
-| `TradeDesc` | String | 200 | ✓ | 交易描述，需 URL Encode |
-| `ItemName` | String | 400 | ✓ | 商品名稱，多項用 `#` 分隔 |
-| `ReturnURL` | String | 200 | ✓ | 付款結果背景通知網址 |
-| `ChoosePayment` | String | 20 | ✓ | 付款方式代碼 |
-| `CheckMacValue` | String | - | ✓ | SHA256 檢查碼 |
-| `EncryptType` | Integer | - | ✓ | 固定值 `1` (SHA256) |
+| `MerchantID` | String | 10 | ● | 商店代號 |
+| `MerchantTradeNo` | String | 20 | ● | 訂單編號，需唯一，僅英數字 |
+| `MerchantTradeDate` | String | 20 | ● | 交易時間 `yyyy/MM/dd HH:mm:ss` |
+| `PaymentType` | String | 20 | ● | 固定值 `aio` |
+| `TotalAmount` | Integer | - | ● | 金額，整數，無小數點 |
+| `TradeDesc` | String | 200 | ● | 交易描述，需 URL Encode |
+| `ItemName` | String | 400 | ● | 商品名稱，多項用 `#` 分隔 |
+| `ReturnURL` | String | 200 | ● | 付款結果背景通知網址 |
+| `ChoosePayment` | String | 20 | ● | 付款方式代碼 |
+| `CheckMacValue` | String | - | ● | SHA256 檢查碼 |
+| `EncryptType` | Integer | - | ● | 固定值 `1` (SHA256) |
 
 ### 通用選填參數
 
@@ -159,7 +159,7 @@ ChoosePayment=Credit
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `CreditInstallment` | String(20) | ✓ | 分期期數，如 `3,6,12,18,24` |
+| `CreditInstallment` | String(20) | ● | 分期期數，如 `3,6,12,18,24` |
 | `InstallmentAmount` | Integer | 否 | 每期金額 (系統自動計算) |
 
 **支援期數**: 3, 6, 12, 18, 24 期 (部分銀行支援 5, 8, 9, 10, 30N)
@@ -382,7 +382,7 @@ ChoosePayment=BNPL
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `PaymentInfoURL` | String(200) | ✓ | 訂單建立通知 (需審核) |
+| `PaymentInfoURL` | String(200) | ● | 訂單建立通知 (需審核) |
 | `ClientRedirectURL` | String(200) | 否 | 裕富方案前台導向 |
 | `OrderResultURL` | String(200) | 否 | 中租方案前台導向 |
 
@@ -502,10 +502,10 @@ Content-Type: application/x-www-form-urlencoded
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(10) | ✓ | 商店代號 |
-| `MerchantTradeNo` | String(20) | ✓ | 訂單編號 |
-| `TimeStamp` | Integer | ✓ | Unix 時間戳 (3 分鐘內有效) |
-| `CheckMacValue` | String | ✓ | 檢查碼 |
+| `MerchantID` | String(10) | ● | 商店代號 |
+| `MerchantTradeNo` | String(20) | ● | 訂單編號 |
+| `TimeStamp` | Integer | ● | Unix 時間戳 (3 分鐘內有效) |
+| `CheckMacValue` | String | ● | 檢查碼 |
 | `PlatformID` | String(10) | 否 | 特約合作平台商代號 |
 
 ### 回應參數
@@ -549,12 +549,12 @@ Content-Type: application/x-www-form-urlencoded
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(10) | ✓ | 商店代號 |
-| `MerchantTradeNo` | String(20) | ✓ | 訂單編號 |
-| `TradeNo` | String(20) | ✓ | ECPay 交易編號 |
-| `Action` | String(1) | ✓ | 動作代碼 |
-| `TotalAmount` | Integer | ✓ | 操作金額 |
-| `CheckMacValue` | String | ✓ | 檢查碼 |
+| `MerchantID` | String(10) | ● | 商店代號 |
+| `MerchantTradeNo` | String(20) | ● | 訂單編號 |
+| `TradeNo` | String(20) | ● | ECPay 交易編號 |
+| `Action` | String(1) | ● | 動作代碼 |
+| `TotalAmount` | Integer | ● | 操作金額 |
+| `CheckMacValue` | String | ● | 檢查碼 |
 
 ### Action 動作代碼
 
@@ -579,10 +579,10 @@ Content-Type: application/x-www-form-urlencoded
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `PeriodAmount` | Integer | ✓ | 每次授權金額 |
-| `PeriodType` | String(1) | ✓ | 週期類型 |
-| `Frequency` | Integer | ✓ | 執行頻率 |
-| `ExecTimes` | Integer | ✓ | 總執行次數 |
+| `PeriodAmount` | Integer | ● | 每次授權金額 |
+| `PeriodType` | String(1) | ● | 週期類型 |
+| `Frequency` | Integer | ● | 執行頻率 |
+| `ExecTimes` | Integer | ● | 總執行次數 |
 | `PeriodReturnURL` | String(200) | 否 | 定期定額通知網址 |
 
 ### PeriodType 週期類型

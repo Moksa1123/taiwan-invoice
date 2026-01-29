@@ -1,16 +1,17 @@
 {
-  "platform": "trae",
-  "displayName": "Trae",
+  "platform": "antigravity",
+  "displayName": "Antigravity / Generic Agent",
   "installType": "full",
   "folderStructure": {
-    "root": ".trae",
+    "root": ".agent",
     "skillPath": "skills/taiwan-invoice",
-    "filename": "SKILL.md"
+    "filename": "SKILL.md",
+    "globalRoot": "~/.gemini/antigravity/global_skills"
   },
   "scriptPath": "skills/taiwan-invoice/scripts",
   "frontmatter": {
     "name": "taiwan-invoice",
-    "description": "Taiwan E-Invoice API integration for ECPay, SmilePay, and Amego.",
+    "description": "Taiwan E-Invoice API integration for ECPay, SmilePay, and Amego. Provides B2C/B2B invoice issuance, void, allowance, query, and print functionality.",
     "user-invocable": "true"
   },
   "sections": {

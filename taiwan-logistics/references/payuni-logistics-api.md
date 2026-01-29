@@ -260,20 +260,20 @@ POST /api/logistics/create
 
 | 參數 | 類型 | 長度 | 必填 | 說明 |
 |------|------|------|------|------|
-| `MerID` | String | 20 | ✓ | 商店代號 |
-| `MerTradeNo` | String | 50 | ✓ | 商店訂單編號 |
-| `LogisticsType` | String | 50 | ✓ | 物流類型代碼 |
-| `GoodsType` | Integer | - | ✓ | 溫層 `1`:常溫 `2`:冷凍 |
-| `GoodsAmount` | Integer | - | ✓ | 商品金額 |
-| `GoodsName` | String | 50 | ✓ | 商品名稱 |
-| `SenderName` | String | 10 | ✓ | 寄件人姓名 |
-| `SenderPhone` | String | 20 | ✓ | 寄件人電話 |
+| `MerID` | String | 20 | ● | 商店代號 |
+| `MerTradeNo` | String | 50 | ● | 商店訂單編號 |
+| `LogisticsType` | String | 50 | ● | 物流類型代碼 |
+| `GoodsType` | Integer | - | ● | 溫層 `1`:常溫 `2`:冷凍 |
+| `GoodsAmount` | Integer | - | ● | 商品金額 |
+| `GoodsName` | String | 50 | ● | 商品名稱 |
+| `SenderName` | String | 10 | ● | 寄件人姓名 |
+| `SenderPhone` | String | 20 | ● | 寄件人電話 |
 | `SenderStoreID` | String | 10 | 否 | 寄件門市代號 (C2C 必填) |
-| `ReceiverName` | String | 10 | ✓ | 收件人姓名 |
-| `ReceiverPhone` | String | 20 | ✓ | 收件人電話 |
-| `ReceiverStoreID` | String | 10 | ✓ | 收件門市代號 |
-| `NotifyURL` | String | 500 | ✓ | 物流狀態通知網址 |
-| `Timestamp` | Integer | - | ✓ | Unix 時間戳 |
+| `ReceiverName` | String | 10 | ● | 收件人姓名 |
+| `ReceiverPhone` | String | 20 | ● | 收件人電話 |
+| `ReceiverStoreID` | String | 10 | ● | 收件門市代號 |
+| `NotifyURL` | String | 500 | ● | 物流狀態通知網址 |
+| `Timestamp` | Integer | - | ● | Unix 時間戳 |
 
 ### C2C vs B2C 差異
 
@@ -370,26 +370,26 @@ POST /api/logistics/create
 
 | 參數 | 類型 | 長度 | 必填 | 說明 |
 |------|------|------|------|------|
-| `MerID` | String | 20 | ✓ | 商店代號 |
-| `MerTradeNo` | String | 50 | ✓ | 商店訂單編號 |
-| `LogisticsType` | String | 50 | ✓ | 物流類型代碼 |
-| `GoodsType` | Integer | - | ✓ | 溫層 `1`:常溫 `2`:冷凍 `3`:冷藏 |
-| `GoodsAmount` | Integer | - | ✓ | 商品金額 |
-| `GoodsName` | String | 50 | ✓ | 商品名稱 |
+| `MerID` | String | 20 | ● | 商店代號 |
+| `MerTradeNo` | String | 50 | ● | 商店訂單編號 |
+| `LogisticsType` | String | 50 | ● | 物流類型代碼 |
+| `GoodsType` | Integer | - | ● | 溫層 `1`:常溫 `2`:冷凍 `3`:冷藏 |
+| `GoodsAmount` | Integer | - | ● | 商品金額 |
+| `GoodsName` | String | 50 | ● | 商品名稱 |
 | `GoodsWeight` | Integer | - | 否 | 商品重量 (g) |
-| `SenderName` | String | 10 | ✓ | 寄件人姓名 |
-| `SenderPhone` | String | 20 | ✓ | 寄件人電話 |
-| `SenderZipCode` | String | 5 | ✓ | 寄件人郵遞區號 |
-| `SenderAddress` | String | 200 | ✓ | 寄件人地址 |
-| `ReceiverName` | String | 10 | ✓ | 收件人姓名 |
-| `ReceiverPhone` | String | 20 | ✓ | 收件人電話 |
-| `ReceiverZipCode` | String | 5 | ✓ | 收件人郵遞區號 |
-| `ReceiverAddress` | String | 200 | ✓ | 收件人地址 |
+| `SenderName` | String | 10 | ● | 寄件人姓名 |
+| `SenderPhone` | String | 20 | ● | 寄件人電話 |
+| `SenderZipCode` | String | 5 | ● | 寄件人郵遞區號 |
+| `SenderAddress` | String | 200 | ● | 寄件人地址 |
+| `ReceiverName` | String | 10 | ● | 收件人姓名 |
+| `ReceiverPhone` | String | 20 | ● | 收件人電話 |
+| `ReceiverZipCode` | String | 5 | ● | 收件人郵遞區號 |
+| `ReceiverAddress` | String | 200 | ● | 收件人地址 |
 | `ScheduledPickupDate` | String | 10 | 否 | 預定取貨日期 `yyyy/MM/dd` |
 | `ScheduledDeliveryDate` | String | 10 | 否 | 預定配達日期 `yyyy/MM/dd` |
 | `ScheduledDeliveryTime` | String | 2 | 否 | 預定配達時段 |
-| `NotifyURL` | String | 500 | ✓ | 物流狀態通知網址 |
-| `Timestamp` | Integer | - | ✓ | Unix 時間戳 |
+| `NotifyURL` | String | 500 | ● | 物流狀態通知網址 |
+| `Timestamp` | Integer | - | ● | Unix 時間戳 |
 
 ### ScheduledDeliveryTime 配達時段
 
@@ -591,9 +591,9 @@ POST /api/logistics/query
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `MerTradeNo` | String | ✓ | 商店訂單編號 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `MerTradeNo` | String | ● | 商店訂單編號 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 
 ### 回應參數 (解密後)
 

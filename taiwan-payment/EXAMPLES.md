@@ -1244,7 +1244,7 @@ export async function POST(request: Request) {
 
 **修正前：**
 ```typescript
-// ❌ 錯誤：未排序參數
+// * 錯誤：未排序參數
 function generateCheckMacValue(params: Record<string, any>, hashKey: string, hashIV: string) {
     const paramString = Object.entries(params)
         .map(([k, v]) => `${k}=${v}`)
@@ -1258,7 +1258,7 @@ function generateCheckMacValue(params: Record<string, any>, hashKey: string, has
 
 **修正後：**
 ```typescript
-// ✅ 正確：排序 + URL Encode (lowercase)
+// *! 正確：排序 + URL Encode (lowercase)
 function generateCheckMacValue(params: Record<string, any>, hashKey: string, hashIV: string) {
     // 1. 移除 CheckMacValue 本身
     const { CheckMacValue, ...cleanParams } = params
@@ -1313,7 +1313,7 @@ console.log('計算結果:', checkMacValue)
 
 **修正前 (NewebPay)：**
 ```typescript
-// ❌ 錯誤：Key/IV 長度不正確
+// * 錯誤：Key/IV 長度不正確
 function encryptNewebPay(data: Record<string, any>, hashKey: string, hashIV: string) {
     const queryString = new URLSearchParams(data).toString()
 
@@ -1328,7 +1328,7 @@ function encryptNewebPay(data: Record<string, any>, hashKey: string, hashIV: str
 
 **修正後 (NewebPay)：**
 ```typescript
-// ✅ 正確：確認 Key/IV 長度 + 計算 TradeSha
+// *! 正確：確認 Key/IV 長度 + 計算 TradeSha
 function encryptNewebPay(data: Record<string, any>, hashKey: string, hashIV: string) {
     // 確認長度
     if (hashKey.length !== 32) throw new Error('HashKey 必須 32 bytes')
@@ -1358,7 +1358,7 @@ function encryptNewebPay(data: Record<string, any>, hashKey: string, hashIV: str
 
 **修正前 (PAYUNi)：**
 ```typescript
-// ❌ 錯誤：忘記附加 Auth Tag
+// * 錯誤：忘記附加 Auth Tag
 function encryptPAYUNi(data: Record<string, any>, hashKey: string, hashIV: string) {
     const jsonString = JSON.stringify(data)
 
@@ -1373,7 +1373,7 @@ function encryptPAYUNi(data: Record<string, any>, hashKey: string, hashIV: strin
 
 **修正後 (PAYUNi)：**
 ```typescript
-// ✅ 正確：附加 Auth Tag
+// *! 正確：附加 Auth Tag
 function encryptPAYUNi(data: Record<string, any>, hashKey: string, hashIV: string) {
     const jsonString = JSON.stringify(data)
 

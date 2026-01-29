@@ -498,7 +498,7 @@ async function refundPaymentOrder(merchantTradeNo: string, refundAmount: number)
 
 **解決方案：**
 ```typescript
-// ✅ 正確
+// * 正確
 function generateCheckMacValue(params: Record<string, any>, hashKey: string, hashIV: string) {
     // 1. 移除 CheckMacValue
     const { CheckMacValue, ...cleanParams } = params
@@ -519,10 +519,10 @@ function generateCheckMacValue(params: Record<string, any>, hashKey: string, has
     return crypto.createHash('sha256').update(encoded).digest('hex').toUpperCase()
 }
 
-// ❌ 錯誤：未排序
+// * 錯誤：未排序
 const paramString = Object.entries(params).map(([k, v]) => `${k}=${v}`).join('&')
 
-// ❌ 錯誤：URL Encode 使用 uppercase
+// * 錯誤：URL Encode 使用 uppercase
 const encoded = encodeURIComponent(rawString)  // 應該用 toLowerCase()
 ```
 
@@ -534,7 +534,7 @@ const encoded = encodeURIComponent(rawString)  // 應該用 toLowerCase()
 
 **解決方案：**
 ```typescript
-// ✅ 建議：加入時間戳保證唯一性
+// * 建議：加入時間戳保證唯一性
 function generateMerchantTradeNo(prefix: string = 'ORD') {
     const timestamp = Date.now()
     const random = Math.random().toString(36).substring(2, 8).toUpperCase()
@@ -555,7 +555,7 @@ function generateMerchantTradeNo(prefix: string = 'ORD') {
 
 **解決方案：**
 ```typescript
-// ✅ 確保金額為正整數
+// * 確保金額為正整數
 function validateAmount(amount: number): number {
     if (amount <= 0) {
         throw new Error('金額必須大於 0')
@@ -563,7 +563,7 @@ function validateAmount(amount: number): number {
     return Math.round(amount)  // 移除小數
 }
 
-// ✅ 驗證商品金額總和
+// * 驗證商品金額總和
 function validateItemsAmount(items: Item[], totalAmount: number) {
     const itemsSum = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
     if (Math.round(itemsSum) !== Math.round(totalAmount)) {
@@ -581,10 +581,10 @@ function validateItemsAmount(items: Item[], totalAmount: number) {
 
 **解決方案：**
 ```typescript
-// ✅ 確認 ReturnURL 使用 HTTPS
+// * 確認 ReturnURL 使用 HTTPS
 const returnURL = 'https://yourdomain.com/api/payment/callback'  // 必須 HTTPS
 
-// ✅ 正確回應格式
+// * 正確回應格式
 export async function POST(request: Request) {
     // ... 處理邏輯
 
@@ -595,7 +595,7 @@ export async function POST(request: Request) {
     })
 }
 
-// ❌ 錯誤：JSON 回應
+// * 錯誤：JSON 回應
 return Response.json({ success: true })  // 不正確
 ```
 
@@ -624,11 +624,11 @@ CVV: 任意 3 碼
 **NewebPay AES-256-CBC 加密錯誤：**
 
 ```typescript
-// ✅ 確認 Key/IV 長度
+// * 確認 Key/IV 長度
 const hashKey = 'your32BytesHashKeyHere123456'  // 必須 32 bytes
 const hashIV = 'your16BytesIV123'              // 必須 16 bytes
 
-// ✅ 使用正確的 padding
+// * 使用正確的 padding
 const cipher = crypto.createCipheriv('aes-256-cbc', hashKey, hashIV)
 cipher.setAutoPadding(true)  // PKCS7 padding
 ```
@@ -636,7 +636,7 @@ cipher.setAutoPadding(true)  // PKCS7 padding
 **PAYUNi AES-256-GCM 加密錯誤：**
 
 ```typescript
-// ✅ 記得附加 Auth Tag
+// * 記得附加 Auth Tag
 const cipher = crypto.createCipheriv('aes-256-gcm', hashKey, hashIV)
 let encrypted = cipher.update(jsonString, 'utf8', 'hex')
 encrypted += cipher.final('hex')
@@ -653,7 +653,7 @@ const encryptInfo = encrypted + authTag  // 總長度 = encrypted + 32 chars (16
 
 **解決方案：**
 ```typescript
-// ✅ ECPay ATM 設定
+// * ECPay ATM 設定
 const params = {
     ChoosePayment: 'ATM',
     ExpireDate: 3,  // 3-60 天
@@ -661,7 +661,7 @@ const params = {
     // ...
 }
 
-// ✅ NewebPay ATM 設定
+// * NewebPay ATM 設定
 const params = {
     VACC: 1,  // 啟用 ATM
     ExpireDate: '2024-12-31',  // yyyy-MM-dd 格式
@@ -675,7 +675,7 @@ const params = {
 
 **解決方案：**
 ```typescript
-// ✅ ECPay 定期定額
+// * ECPay 定期定額
 const periodicParams = {
     PeriodAmount: 1000,      // 扣款金額
     PeriodType: 'M',         // D=日, M=月, Y=年
@@ -685,7 +685,7 @@ const periodicParams = {
     // ...
 }
 
-// ✅ NewebPay 定期定額
+// * NewebPay 定期定額
 const periodicParams = {
     PeriodAmt: 1000,
     PeriodType: 'M',
@@ -703,10 +703,10 @@ const periodicParams = {
 
 **解決方案：**
 ```typescript
-// ❌ 錯誤：使用 AJAX
+// * 錯誤：使用 AJAX
 fetch(paymentUrl, { method: 'POST', body: formData })  // 會被 CORS 阻擋
 
-// ✅ 正確：使用 Form POST 整頁跳轉
+// * 正確：使用 Form POST 整頁跳轉
 function submitPaymentForm(action: string, params: Record<string, string>) {
     const form = document.createElement('form')
     form.method = 'POST'
@@ -736,7 +736,7 @@ function submitPaymentForm(action: string, params: Record<string, string>) {
 
 **解決方案：**
 ```typescript
-// ✅ 使用環境變數區分
+// * 使用環境變數區分
 const config = {
     merchantID: process.env.NODE_ENV === 'production'
         ? process.env.ECPAY_MERCHANT_ID_PROD

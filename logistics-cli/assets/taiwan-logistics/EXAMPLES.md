@@ -2455,7 +2455,7 @@ if __name__ == '__main__':
         result = logistics.create_cvs_shipment(shipment_data)
 
         if result.success:
-            print(f"✓ 訂單建立成功")
+            print(f"訂單建立成功")
             print(f"  物流編號: {result.all_pay_logistics_id}")
             print(f"  寄貨編號: {result.cvs_payment_no}")
             print(f"  驗證碼: {result.cvs_validation_no}")

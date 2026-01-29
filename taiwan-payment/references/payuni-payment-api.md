@@ -264,10 +264,10 @@ class PayuniEncryption:
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
+| `MerID` | String | ● | 商店代號 |
 | `Version` | String | 否 | API 版本，預設 `1.0` (LINE Pay 預設 `1.1`) |
-| `EncryptInfo` | String | ✓ | AES-256-GCM 加密後的參數 |
-| `HashInfo` | String | ✓ | SHA256 驗證碼 |
+| `EncryptInfo` | String | ● | AES-256-GCM 加密後的參數 |
+| `HashInfo` | String | ● | SHA256 驗證碼 |
 
 ### EncryptInfo 內容參數
 
@@ -275,10 +275,10 @@ class PayuniEncryption:
 
 | 參數 | 類型 | 長度 | 必填 | 說明 |
 |------|------|------|------|------|
-| `MerID` | String | 20 | ✓ | 商店代號 |
-| `MerTradeNo` | String | 50 | ✓ | 商店訂單編號，需唯一 |
-| `TradeAmt` | Integer | - | ✓ | 交易金額 (整數) |
-| `Timestamp` | Integer | - | ✓ | Unix 時間戳 |
+| `MerID` | String | 20 | ● | 商店代號 |
+| `MerTradeNo` | String | 50 | ● | 商店訂單編號，需唯一 |
+| `TradeAmt` | Integer | - | ● | 交易金額 (整數) |
+| `Timestamp` | Integer | - | ● | Unix 時間戳 |
 | `ProdDesc` | String | 100 | 否 | 商品描述 |
 | `UsrMail` | String | 100 | 否 | 消費者 Email |
 | `ReturnURL` | String | 500 | 否 | 前台返回網址 |
@@ -319,10 +319,10 @@ POST /api/upp
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `MerTradeNo` | String | ✓ | 訂單編號 |
-| `TradeAmt` | Integer | ✓ | 交易金額 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `MerTradeNo` | String | ● | 訂單編號 |
+| `TradeAmt` | Integer | ● | 交易金額 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 | `ExpireDate` | Integer | 否 | 繳費期限 (天)，`1`~`180`，預設 `7` |
 | `ProdDesc` | String | 否 | 商品描述 |
 | `UsrMail` | String | 否 | 消費者 Email |
@@ -394,13 +394,13 @@ POST /api/credit
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `MerTradeNo` | String | ✓ | 訂單編號 |
-| `TradeAmt` | Integer | ✓ | 交易金額 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
-| `CardNo` | String | ✓ | 信用卡號 (16 碼) |
-| `CardExpiry` | String | ✓ | 有效期限 `MMYY` |
-| `CardCVC` | String | ✓ | 安全碼 (3 碼) |
+| `MerID` | String | ● | 商店代號 |
+| `MerTradeNo` | String | ● | 訂單編號 |
+| `TradeAmt` | Integer | ● | 交易金額 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
+| `CardNo` | String | ● | 信用卡號 (16 碼) |
+| `CardExpiry` | String | ● | 有效期限 `MMYY` |
+| `CardCVC` | String | ● | 安全碼 (3 碼) |
 | `ProdDesc` | String | 否 | 商品描述 |
 | `UsrMail` | String | 否 | 消費者 Email |
 | `NotifyURL` | String | 否 | 背景通知網址 |
@@ -446,10 +446,10 @@ POST /api/atm
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `MerTradeNo` | String | ✓ | 訂單編號 |
-| `TradeAmt` | Integer | ✓ | 交易金額 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `MerTradeNo` | String | ● | 訂單編號 |
+| `TradeAmt` | Integer | ● | 交易金額 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 | `ExpireDate` | Integer | 否 | 繳費期限 (天)，`1`~`60`，預設 `3` |
 | `BankType` | String | 否 | 指定銀行 (參見下表) |
 | `NotifyURL` | String | 否 | 背景通知網址 |
@@ -489,10 +489,10 @@ POST /api/cvs
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `MerTradeNo` | String | ✓ | 訂單編號 |
-| `TradeAmt` | Integer | ✓ | 交易金額 (`30`~`20000`) |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `MerTradeNo` | String | ● | 訂單編號 |
+| `TradeAmt` | Integer | ● | 交易金額 (`30`~`20000`) |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 | `ExpireDate` | Integer | 否 | 繳費期限 (天)，預設 `7` |
 | `NotifyURL` | String | 否 | 背景通知網址 |
 
@@ -533,12 +533,12 @@ Version: 1.1
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `MerTradeNo` | String | ✓ | 訂單編號 |
-| `TradeAmt` | Integer | ✓ | 交易金額 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
-| `ProdDesc` | String | ✓ | 商品描述 |
-| `ReturnURL` | String | ✓ | 付款完成返回網址 |
+| `MerID` | String | ● | 商店代號 |
+| `MerTradeNo` | String | ● | 訂單編號 |
+| `TradeAmt` | Integer | ● | 交易金額 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
+| `ProdDesc` | String | ● | 商品描述 |
+| `ReturnURL` | String | ● | 付款完成返回網址 |
 | `NotifyURL` | String | 否 | 背景通知網址 |
 
 ### LINE Pay 退款
@@ -553,10 +553,10 @@ POST /api/trade_refund_linepay
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `TradeNo` | String | ✓ | PayUni 交易編號 |
-| `TradeAmt` | Integer | ✓ | 退款金額 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `TradeNo` | String | ● | PayUni 交易編號 |
+| `TradeAmt` | Integer | ● | 退款金額 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 
 ---
 
@@ -574,15 +574,15 @@ POST /api/aftee_direct
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `MerTradeNo` | String | ✓ | 訂單編號 |
-| `TradeAmt` | Integer | ✓ | 交易金額 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
-| `ProdDesc` | String | ✓ | 商品描述 |
-| `UsrMail` | String | ✓ | 消費者 Email |
-| `UsrName` | String | ✓ | 消費者姓名 |
-| `UsrPhone` | String | ✓ | 消費者手機 |
-| `ReturnURL` | String | ✓ | 付款完成返回網址 |
+| `MerID` | String | ● | 商店代號 |
+| `MerTradeNo` | String | ● | 訂單編號 |
+| `TradeAmt` | Integer | ● | 交易金額 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
+| `ProdDesc` | String | ● | 商品描述 |
+| `UsrMail` | String | ● | 消費者 Email |
+| `UsrName` | String | ● | 消費者姓名 |
+| `UsrPhone` | String | ● | 消費者手機 |
+| `ReturnURL` | String | ● | 付款完成返回網址 |
 | `NotifyURL` | String | 否 | 背景通知網址 |
 
 ### AFTEE 確認交易
@@ -633,10 +633,10 @@ POST /api/trade_refund_icash
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `TradeNo` | String | ✓ | PayUni 交易編號 |
-| `TradeAmt` | Integer | ✓ | 退款金額 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `TradeNo` | String | ● | PayUni 交易編號 |
+| `TradeAmt` | Integer | ● | 退款金額 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 
 ---
 
@@ -654,9 +654,9 @@ POST /api/trade_query
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `MerTradeNo` | String | ✓ | 商店訂單編號 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `MerTradeNo` | String | ● | 商店訂單編號 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 
 ### 回應參數 (解密後)
 
@@ -732,11 +732,11 @@ POST /api/trade_close
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `TradeNo` | String | ✓ | PayUni 交易編號 |
-| `CloseType` | Integer | ✓ | 操作類型 |
+| `MerID` | String | ● | 商店代號 |
+| `TradeNo` | String | ● | PayUni 交易編號 |
+| `CloseType` | Integer | ● | 操作類型 |
 | `CloseAmt` | Integer | 否 | 請退款金額 (部分退款時使用) |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 
 ### CloseType 操作類型
 
@@ -767,9 +767,9 @@ POST /api/trade_cancel
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `TradeNo` | String | ✓ | PayUni 交易編號 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `TradeNo` | String | ● | PayUni 交易編號 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 
 ---
 
@@ -787,9 +787,9 @@ POST /api/credit_bind_query
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `BindVal` | String | ✓ | Token 代碼 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `BindVal` | String | ● | Token 代碼 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 
 ### 取消約定信用卡
 
@@ -803,9 +803,9 @@ POST /api/credit_bind_cancel
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerID` | String | ✓ | 商店代號 |
-| `BindVal` | String | ✓ | Token 代碼 |
-| `Timestamp` | Integer | ✓ | Unix 時間戳 |
+| `MerID` | String | ● | 商店代號 |
+| `BindVal` | String | ● | Token 代碼 |
+| `Timestamp` | Integer | ● | Unix 時間戳 |
 
 ---
 

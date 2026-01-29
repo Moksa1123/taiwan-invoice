@@ -31,7 +31,7 @@
 
 <table>
 <tr>
-<td width="33%" align="center">
+<td width="33%" align="center" style="border: 2px solid #e1e4e8; padding: 20px; border-radius: 8px;">
 
 ### 電子發票整合
 
@@ -41,12 +41,16 @@
 
 ECPay · SmilePay · Amego
 
-[![npm](https://img.shields.io/npm/v/taiwan-invoice-skill?style=flat-square)](https://www.npmjs.com/package/taiwan-invoice-skill)
+<p align="center">
+  <a href="https://www.npmjs.com/package/taiwan-invoice-skill"><img src="https://img.shields.io/npm/v/taiwan-invoice-skill?style=flat-square&color=cb3837&logo=npm" alt="npm version"></a>
+  <br>
+  <a href="https://www.npmjs.com/package/taiwan-invoice-skill"><img src="https://img.shields.io/npm/dm/taiwan-invoice-skill?style=flat-square&color=cb3837" alt="npm downloads"></a>
+</p>
 
-[📖 完整文件](taiwan-invoice/README.md)
+[完整文件](taiwan-invoice/README.md)
 
 </td>
-<td width="33%" align="center">
+<td width="33%" align="center" style="border: 2px solid #e1e4e8; padding: 20px; border-radius: 8px;">
 
 ### 金流串接整合
 
@@ -56,12 +60,16 @@ ECPay · SmilePay · Amego
 
 ECPay · NewebPay · PAYUNi
 
-[![npm](https://img.shields.io/npm/v/taiwan-payment-skill?style=flat-square)](https://www.npmjs.com/package/taiwan-payment-skill)
+<p align="center">
+  <a href="https://www.npmjs.com/package/taiwan-payment-skill"><img src="https://img.shields.io/npm/v/taiwan-payment-skill?style=flat-square&color=cb3837&logo=npm" alt="npm version"></a>
+  <br>
+  <a href="https://www.npmjs.com/package/taiwan-payment-skill"><img src="https://img.shields.io/npm/dm/taiwan-payment-skill?style=flat-square&color=cb3837" alt="npm downloads"></a>
+</p>
 
-[📖 完整文件](taiwan-payment/README.md)
+[完整文件](taiwan-payment/README.md)
 
 </td>
-<td width="33%" align="center">
+<td width="33%" align="center" style="border: 2px solid #e1e4e8; padding: 20px; border-radius: 8px;">
 
 ### 物流串接整合
 
@@ -71,9 +79,13 @@ ECPay · NewebPay · PAYUNi
 
 ECPay · NewebPay · PAYUNi
 
-[![npm](https://img.shields.io/npm/v/taiwan-logistics-skill?style=flat-square)](https://www.npmjs.com/package/taiwan-logistics-skill)
+<p align="center">
+  <a href="https://www.npmjs.com/package/taiwan-logistics-skill"><img src="https://img.shields.io/npm/v/taiwan-logistics-skill?style=flat-square&color=cb3837&logo=npm" alt="npm version"></a>
+  <br>
+  <a href="https://www.npmjs.com/package/taiwan-logistics-skill"><img src="https://img.shields.io/npm/dm/taiwan-logistics-skill?style=flat-square&color=cb3837" alt="npm downloads"></a>
+</p>
 
-[📖 完整文件](taiwan-logistics/README.md)
+[完整文件](taiwan-logistics/README.md)
 
 </td>
 </tr>

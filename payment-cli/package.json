@@ -1,6 +1,6 @@
 {
   "name": "taiwan-payment-skill",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AI-powered Taiwan Payment Gateway integration toolkit for Claude Code and other AI coding assistants",
   "keywords": [
     "taiwan",

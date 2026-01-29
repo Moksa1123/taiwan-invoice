@@ -27,16 +27,34 @@ export async function initCommand(options: InitOptions): Promise<void> {
       logger.info(`Detected: ${detected.map(t => chalk.cyan(t)).join(', ')}`);
     }
 
-    const response = await prompts({
-      type: 'select',
-      name: 'aiType',
-      message: 'Select AI assistant to install for:',
-      choices: AI_TYPES.map(type => ({
-        title: getAITypeDescription(type),
-        value: type,
-      })),
-      initial: suggested ? AI_TYPES.indexOf(suggested) : 0,
-    });
+    const response = await prompts([
+      {
+        type: 'select',
+        name: 'aiType',
+        message: '你想裝在哪個 AI 助手？',
+        choices: AI_TYPES.map(type => ({
+          title: getAITypeDescription(type),
+          value: type,
+        })),
+        initial: suggested ? AI_TYPES.indexOf(suggested) : 0,
+      },
+      {
+        type: (prev) => prev !== 'all' && prev !== 'windsurf' ? 'toggle' : null,
+        name: 'global',
+        message: '要全域安裝嗎？（所有專案都能用）',
+        initial: false,
+        active: '要',
+        inactive: '不要',
+      },
+      {
+        type: 'toggle',
+        name: 'force',
+        message: '檔案如果已經存在要覆蓋嗎？',
+        initial: false,
+        active: '要',
+        inactive: '不要',
+      },
+    ]);
 
     if (!response.aiType) {
       logger.warn('Installation cancelled');
@@ -44,6 +62,14 @@ export async function initCommand(options: InitOptions): Promise<void> {
     }
 
     aiType = response.aiType as AIType;
+
+    // Override options with interactive responses if not already set
+    if (options.global === undefined && response.global !== undefined) {
+      options.global = response.global;
+    }
+    if (options.force === undefined && response.force !== undefined) {
+      options.force = response.force;
+    }
   }
 
   // Determine target directory
@@ -101,17 +127,55 @@ export async function initCommand(options: InitOptions): Promise<void> {
     console.log();
     logger.info('Installed folders:');
     copiedFolders.forEach(folder => {
-      console.log(`  ${chalk.green('✓')} ${folder}`);
+      console.log(`  ${chalk.green('●')} ${folder}`);
     });
 
     console.log();
-    logger.success('Taiwan Logistics Skill installed successfully!');
 
-    // Next steps
+    // Success box
+    logger.box(
+      `台灣物流技能包安裝成功！\n\n` +
+      `已安裝到: ${chalk.cyan(copiedFolders[0])}\n\n` +
+      `下一步：\n` +
+      ` 1. 重新啟動你的 AI 助手\n` +
+      ` 2. 試試看：「幫我整合綠界物流 API」`
+    );
+
     console.log();
-    console.log(chalk.bold('Next steps:'));
-    console.log(chalk.dim('  1. Restart your AI coding assistant'));
-    console.log(chalk.dim('  2. Try: "Help me integrate ECPay logistics API"'));
+
+    // Interactive tutorial
+    const tutorialResponse = await prompts({
+      type: 'toggle',
+      name: 'showTutorial',
+      message: '要看快速上手指南嗎？',
+      initial: true,
+      active: '要',
+      inactive: '不用',
+    });
+
+    if (tutorialResponse.showTutorial) {
+      console.log();
+      console.log(chalk.bold.cyan('快速上手指南'));
+      console.log();
+      console.log(chalk.yellow('支援的物流平台：'));
+      console.log(chalk.dim('  • 綠界物流 (ECPay)'));
+      console.log(chalk.dim('  • 藍新物流 (NewebPay)'));
+      console.log(chalk.dim('  • 統一金流 (PayUni)'));
+      console.log();
+      console.log(chalk.yellow('常見使用範例：'));
+      console.log(chalk.dim('  1. 「幫我整合綠界超商取貨 API」'));
+      console.log(chalk.dim('  2. 「我要實作物流訂單查詢功能」'));
+      console.log(chalk.dim('  3. 「產生物流 B2C 寄件單」'));
+      console.log();
+      console.log(chalk.yellow('技能包內容：'));
+      console.log(chalk.dim('  • API 文件參考 (references/)'));
+      console.log(chalk.dim('  • 程式碼範例 (EXAMPLES.md)'));
+      console.log(chalk.dim('  • 測試工具 (scripts/)'));
+      console.log();
+      console.log(chalk.green('提示：重啟 AI 助手後，直接用中文描述你要做什麼就可以了！'));
+      console.log();
+    }
+
     console.log();
   } catch (error) {
     logger.error('Installation failed');

@@ -600,29 +600,29 @@ Create store-to-store logistics order.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerID | String | ✓ | Merchant ID |
-| Version | String | ✓ | API version (1.0) |
-| EncryptInfo | String | ✓ | AES-256-GCM encrypted data |
-| HashInfo | String | ✓ | SHA256 hash |
+| MerID | String | ● | Merchant ID |
+| Version | String | ● | API version (1.0) |
+| EncryptInfo | String | ● | AES-256-GCM encrypted data |
+| HashInfo | String | ● | SHA256 hash |
 
 **EncryptInfo Parameters:**
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerID | String(20) | ✓ | Merchant ID |
-| MerTradeNo | String(50) | ✓ | Unique order number |
-| LogisticsType | String(50) | ✓ | PAYUNi_Logistic_711 |
-| GoodsType | Integer | ✓ | 1=Normal, 2=Frozen |
-| GoodsAmount | Integer | ✓ | Product amount |
-| GoodsName | String(50) | ✓ | Product name |
-| SenderName | String(10) | ✓ | Sender name |
-| SenderPhone | String(20) | ✓ | Sender phone |
-| SenderStoreID | String(10) | ✓ | Sender store code (C2C only) |
-| ReceiverName | String(10) | ✓ | Receiver name |
-| ReceiverPhone | String(20) | ✓ | Receiver phone |
-| ReceiverStoreID | String(10) | ✓ | Receiver store code |
-| NotifyURL | String(500) | ✓ | Status notification URL |
-| Timestamp | Integer | ✓ | Unix timestamp |
+| MerID | String(20) | ● | Merchant ID |
+| MerTradeNo | String(50) | ● | Unique order number |
+| LogisticsType | String(50) | ● | PAYUNi_Logistic_711 |
+| GoodsType | Integer | ● | 1=Normal, 2=Frozen |
+| GoodsAmount | Integer | ● | Product amount |
+| GoodsName | String(50) | ● | Product name |
+| SenderName | String(10) | ● | Sender name |
+| SenderPhone | String(20) | ● | Sender phone |
+| SenderStoreID | String(10) | ● | Sender store code (C2C only) |
+| ReceiverName | String(10) | ● | Receiver name |
+| ReceiverPhone | String(20) | ● | Receiver phone |
+| ReceiverStoreID | String(10) | ● | Receiver store code |
+| NotifyURL | String(500) | ● | Status notification URL |
+| Timestamp | Integer | ● | Unix timestamp |
 
 **Response (Decrypted EncryptInfo):**
 
@@ -646,13 +646,13 @@ Create home delivery shipment.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| LogisticsType | String(50) | ✓ | PAYUNi_Logistic_Tcat |
-| GoodsType | Integer | ✓ | 1=Normal, 2=Frozen, 3=Refrigerated |
+| LogisticsType | String(50) | ● | PAYUNi_Logistic_Tcat |
+| GoodsType | Integer | ● | 1=Normal, 2=Frozen, 3=Refrigerated |
 | GoodsWeight | Integer | - | Weight in grams |
-| SenderZipCode | String(5) | ✓ | Sender postal code |
-| SenderAddress | String(200) | ✓ | Sender address |
-| ReceiverZipCode | String(5) | ✓ | Receiver postal code |
-| ReceiverAddress | String(200) | ✓ | Receiver address |
+| SenderZipCode | String(5) | ● | Sender postal code |
+| SenderAddress | String(200) | ● | Sender address |
+| ReceiverZipCode | String(5) | ● | Receiver postal code |
+| ReceiverAddress | String(200) | ● | Receiver address |
 | ScheduledPickupDate | String(10) | - | Pickup date (yyyy/MM/dd) |
 | ScheduledDeliveryDate | String(10) | - | Delivery date (yyyy/MM/dd) |
 | ScheduledDeliveryTime | String(2) | - | 01/02/03 (time slot) |
@@ -683,9 +683,9 @@ Query logistics order status.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerID | String | ✓ | Merchant ID |
-| MerTradeNo | String | ✓ | Order number |
-| Timestamp | Integer | ✓ | Unix timestamp |
+| MerID | String | ● | Merchant ID |
+| MerTradeNo | String | ● | Order number |
+| Timestamp | Integer | ● | Unix timestamp |
 
 **Response (Decrypted EncryptInfo):**
 

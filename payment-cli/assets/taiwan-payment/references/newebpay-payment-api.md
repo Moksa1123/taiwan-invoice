@@ -244,23 +244,23 @@ POST /MPG/mpg_gateway
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(15) | ✓ | 商店代號 |
-| `TradeInfo` | String | ✓ | AES 加密後的交易資料 |
-| `TradeSha` | String | ✓ | SHA256 驗證碼 |
-| `Version` | String(5) | ✓ | 串接版本 `2.3` |
+| `MerchantID` | String(15) | ● | 商店代號 |
+| `TradeInfo` | String | ● | AES 加密後的交易資料 |
+| `TradeSha` | String | ● | SHA256 驗證碼 |
+| `Version` | String(5) | ● | 串接版本 `2.3` |
 | `EncryptType` | Int(1) | 否 | 加密模式 `1`=AES/GCM |
 
 ### TradeInfo 參數
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(15) | ✓ | 商店代號 |
-| `RespondType` | String(6) | ✓ | 回傳格式 `JSON` 或 `String` |
-| `TimeStamp` | String(50) | ✓ | Unix 時間戳 (容許誤差 120 秒) |
-| `Version` | String(5) | ✓ | 串接版本 `2.3` |
-| `MerchantOrderNo` | String(30) | ✓ | 訂單編號 (唯一) |
-| `Amt` | Int(10) | ✓ | 訂單金額 (新台幣整數) |
-| `ItemDesc` | String(50) | ✓ | 商品資訊 |
+| `MerchantID` | String(15) | ● | 商店代號 |
+| `RespondType` | String(6) | ● | 回傳格式 `JSON` 或 `String` |
+| `TimeStamp` | String(50) | ● | Unix 時間戳 (容許誤差 120 秒) |
+| `Version` | String(5) | ● | 串接版本 `2.3` |
+| `MerchantOrderNo` | String(30) | ● | 訂單編號 (唯一) |
+| `Amt` | Int(10) | ● | 訂單金額 (新台幣整數) |
+| `ItemDesc` | String(50) | ● | 商品資訊 |
 | `LangType` | String(5) | 否 | 語系 `zh-tw`/`en`/`jp` |
 | `TradeLimit` | Int(3) | 否 | 交易秒數限制 (60-900) |
 | `ExpireDate` | String(10) | 否 | 繳費期限 `Ymd`，預設 7 天，最大 180 天 |
@@ -357,13 +357,13 @@ POST /API/QueryTradeInfo
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(15) | ✓ | 商店代號 |
-| `Version` | String(5) | ✓ | `1.3` |
-| `RespondType` | String(6) | ✓ | `JSON` 或 `String` |
-| `CheckValue` | String(255) | ✓ | 檢查碼 |
-| `TimeStamp` | String(50) | ✓ | Unix 時間戳 |
-| `MerchantOrderNo` | String(30) | ✓ | 商店訂單編號 |
-| `Amt` | Int(10) | ✓ | 訂單金額 |
+| `MerchantID` | String(15) | ● | 商店代號 |
+| `Version` | String(5) | ● | `1.3` |
+| `RespondType` | String(6) | ● | `JSON` 或 `String` |
+| `CheckValue` | String(255) | ● | 檢查碼 |
+| `TimeStamp` | String(50) | ● | Unix 時間戳 |
+| `MerchantOrderNo` | String(30) | ● | 商店訂單編號 |
+| `Amt` | Int(10) | ● | 訂單金額 |
 
 ### CheckValue 產生規則
 
@@ -438,20 +438,20 @@ POST /API/CreditCard/Cancel
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID_` | String(10) | ✓ | 商店代號 |
-| `PostData_` | Text | ✓ | AES 加密資料 |
+| `MerchantID_` | String(10) | ● | 商店代號 |
+| `PostData_` | Text | ● | AES 加密資料 |
 
 ### PostData_ 內容
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `RespondType` | String(5) | ✓ | `JSON` 或 `String` |
-| `Version` | String(5) | ✓ | `1.0` |
-| `Amt` | Int(10) | ✓ | 取消金額 (需與授權金額相同) |
+| `RespondType` | String(5) | ● | `JSON` 或 `String` |
+| `Version` | String(5) | ● | `1.0` |
+| `Amt` | Int(10) | ● | 取消金額 (需與授權金額相同) |
 | `MerchantOrderNo` | String(30) | + | 訂單編號 (二擇一) |
 | `TradeNo` | String(17) | + | 藍新交易序號 (二擇一) |
-| `IndexType` | Int(1) | ✓ | `1`=用訂單編號 `2`=用交易序號 |
-| `TimeStamp` | String(30) | ✓ | Unix 時間戳 |
+| `IndexType` | Int(1) | ● | `1`=用訂單編號 `2`=用交易序號 |
+| `TimeStamp` | String(30) | ● | Unix 時間戳 |
 
 ---
 
@@ -476,21 +476,21 @@ POST /API/CreditCard/Close
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID_` | String(15) | ✓ | 商店代號 |
-| `PostData_` | Text | ✓ | AES 加密資料 |
+| `MerchantID_` | String(15) | ● | 商店代號 |
+| `PostData_` | Text | ● | AES 加密資料 |
 
 ### PostData_ 內容
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `RespondType` | String(5) | ✓ | `JSON` 或 `String` |
-| `Version` | String(5) | ✓ | `1.1` |
-| `Amt` | Int(10) | ✓ | 請退款金額 |
-| `MerchantOrderNo` | String(30) | ✓ | 訂單編號 |
-| `TimeStamp` | String(30) | ✓ | Unix 時間戳 |
-| `IndexType` | Int(1) | ✓ | `1`=用訂單編號 `2`=用交易序號 |
-| `TradeNo` | String(20) | ✓ | 藍新交易序號 |
-| `CloseType` | Int(1) | ✓ | `1`=請款 `2`=退款 |
+| `RespondType` | String(5) | ● | `JSON` 或 `String` |
+| `Version` | String(5) | ● | `1.1` |
+| `Amt` | Int(10) | ● | 請退款金額 |
+| `MerchantOrderNo` | String(30) | ● | 訂單編號 |
+| `TimeStamp` | String(30) | ● | Unix 時間戳 |
+| `IndexType` | Int(1) | ● | `1`=用訂單編號 `2`=用交易序號 |
+| `TradeNo` | String(20) | ● | 藍新交易序號 |
+| `CloseType` | Int(1) | ● | `1`=請款 `2`=退款 |
 | `Cancel` | Int(1) | 否 | `1`=取消請款/退款 |
 
 ### 退款限制
@@ -516,30 +516,30 @@ POST /API/EWallet/refund
 
 | 錢包 | 退款期限 | 部分退款 | 備註 |
 |------|----------|----------|------|
-| 玉山 Wallet | 89 天 | ✓ | 交易完成 10 分鐘後 |
+| 玉山 Wallet | 89 天 | ● | 交易完成 10 分鐘後 |
 | 台灣 Pay | 29 天 | ✗ | 僅全額退款 |
-| LINE Pay | 60 天 | ✓ | |
-| TWQR | 89 天 | ✓ | 從請款日起算 |
-| 支付寶/微信 | 89 天 | ✓ | |
+| LINE Pay | 60 天 | ● | |
+| TWQR | 89 天 | ● | 從請款日起算 |
+| 支付寶/微信 | 89 天 | ● | |
 
 ### 請求參數
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `UID_` | String(15) | ✓ | 商店代號 |
-| `Version_` | String(5) | ✓ | `1.1` |
-| `EncryptData_` | Text | ✓ | AES 加密資料 |
-| `RespondType_` | String(15) | ✓ | `JSON` |
-| `HashData_` | Text | ✓ | SHA256 雜湊 |
+| `UID_` | String(15) | ● | 商店代號 |
+| `Version_` | String(5) | ● | `1.1` |
+| `EncryptData_` | Text | ● | AES 加密資料 |
+| `RespondType_` | String(15) | ● | `JSON` |
+| `HashData_` | Text | ● | SHA256 雜湊 |
 
 ### EncryptData_ 內容
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantOrderNo` | String(30) | ✓ | 訂單編號 |
-| `Amount` | Int(10) | ✓ | 退款金額 |
-| `TimeStamp` | String(50) | ✓ | Unix 時間戳 |
-| `PaymentType` | String | ✓ | 付款方式 (見下表) |
+| `MerchantOrderNo` | String(30) | ● | 訂單編號 |
+| `Amount` | Int(10) | ● | 退款金額 |
+| `TimeStamp` | String(50) | ● | Unix 時間戳 |
+| `PaymentType` | String | ● | 付款方式 (見下表) |
 
 ### PaymentType 對應
 

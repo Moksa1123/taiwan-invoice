@@ -36,7 +36,7 @@ export function listCommand(): void {
 
   for (const platform of PLATFORMS) {
     const isDetected = detected.includes(platform.name);
-    const status = isDetected ? chalk.green('✓ Detected') : chalk.dim('Available');
+    const status = isDetected ? chalk.green('● Detected') : chalk.dim('Available');
     const name = isDetected ? chalk.cyan(platform.name.padEnd(15)) : platform.name.padEnd(15);
 
     console.log(`  ${name} ${chalk.dim(platform.folder.padEnd(12))} ${status}`);

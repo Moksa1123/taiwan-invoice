@@ -177,27 +177,27 @@ POST /Express/Create
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(10) | ✓ | 商店代號 |
-| `MerchantTradeNo` | String(20) | ✓ | 訂單編號 (唯一) |
-| `MerchantTradeDate` | String(20) | ✓ | 訂單日期 `yyyy/MM/dd HH:mm:ss` |
-| `LogisticsType` | String(20) | ✓ | 物流類型 `CVS`/`Home` |
-| `LogisticsSubType` | String(20) | ✓ | 物流子類型 |
-| `GoodsAmount` | Integer | ✓ | 商品金額 |
-| `GoodsName` | String(50) | ✓ | 商品名稱 |
-| `SenderName` | String(10) | ✓ | 寄件人姓名 |
-| `SenderPhone` | String(20) | ✓ | 寄件人電話 |
+| `MerchantID` | String(10) | ● | 商店代號 |
+| `MerchantTradeNo` | String(20) | ● | 訂單編號 (唯一) |
+| `MerchantTradeDate` | String(20) | ● | 訂單日期 `yyyy/MM/dd HH:mm:ss` |
+| `LogisticsType` | String(20) | ● | 物流類型 `CVS`/`Home` |
+| `LogisticsSubType` | String(20) | ● | 物流子類型 |
+| `GoodsAmount` | Integer | ● | 商品金額 |
+| `GoodsName` | String(50) | ● | 商品名稱 |
+| `SenderName` | String(10) | ● | 寄件人姓名 |
+| `SenderPhone` | String(20) | ● | 寄件人電話 |
 | `SenderCellPhone` | String(20) | 否 | 寄件人手機 |
-| `ReceiverName` | String(10) | ✓ | 收件人姓名 |
-| `ReceiverPhone` | String(20) | ✓ | 收件人電話 |
+| `ReceiverName` | String(10) | ● | 收件人姓名 |
+| `ReceiverPhone` | String(20) | ● | 收件人電話 |
 | `ReceiverCellPhone` | String(20) | 否 | 收件人手機 |
-| `ServerReplyURL` | String(200) | ✓ | 物流狀態通知網址 |
-| `CheckMacValue` | String | ✓ | 檢查碼 |
+| `ServerReplyURL` | String(200) | ● | 物流狀態通知網址 |
+| `CheckMacValue` | String | ● | 檢查碼 |
 
 ### 超商取貨專用參數
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `ReceiverStoreID` | String(6) | ✓ | 收件門市代號 |
+| `ReceiverStoreID` | String(6) | ● | 收件門市代號 |
 | `ReturnStoreID` | String(6) | 否 | 退貨門市代號 |
 | `IsCollection` | String(1) | 否 | 是否代收貨款 `Y`/`N` |
 | `CollectionAmount` | Integer | 否 | 代收金額 |
@@ -206,10 +206,10 @@ POST /Express/Create
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `SenderZipCode` | String(5) | ✓ | 寄件人郵遞區號 |
-| `SenderAddress` | String(200) | ✓ | 寄件人地址 |
-| `ReceiverZipCode` | String(5) | ✓ | 收件人郵遞區號 |
-| `ReceiverAddress` | String(200) | ✓ | 收件人地址 |
+| `SenderZipCode` | String(5) | ● | 寄件人郵遞區號 |
+| `SenderAddress` | String(200) | ● | 寄件人地址 |
+| `ReceiverZipCode` | String(5) | ● | 收件人郵遞區號 |
+| `ReceiverAddress` | String(200) | ● | 收件人地址 |
 | `Temperature` | String(4) | 否 | 溫層 `0001`常溫 `0002`冷藏 `0003`冷凍 |
 | `Distance` | String(2) | 否 | 距離 `00`同縣市 `01`外縣市 `02`離島 |
 | `Specification` | String(4) | 否 | 規格 (見下表) |
@@ -298,11 +298,11 @@ POST /Express/map
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(10) | ✓ | 商店代號 |
-| `LogisticsType` | String(20) | ✓ | 固定 `CVS` |
-| `LogisticsSubType` | String(20) | ✓ | 超商類型 |
-| `IsCollection` | String(1) | ✓ | 是否代收 `Y`/`N` |
-| `ServerReplyURL` | String(200) | ✓ | 選擇門市後的回傳網址 |
+| `MerchantID` | String(10) | ● | 商店代號 |
+| `LogisticsType` | String(20) | ● | 固定 `CVS` |
+| `LogisticsSubType` | String(20) | ● | 超商類型 |
+| `IsCollection` | String(1) | ● | 是否代收 `Y`/`N` |
+| `ServerReplyURL` | String(200) | ● | 選擇門市後的回傳網址 |
 | `ExtraData` | String(200) | 否 | 額外資料 (會原樣回傳) |
 
 ### 流程
@@ -354,9 +354,9 @@ POST /helper/printTradeDocument
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(10) | ✓ | 商店代號 |
-| `AllPayLogisticsID` | String(20) | ✓ | ECPay 物流編號 |
-| `CheckMacValue` | String | ✓ | 檢查碼 |
+| `MerchantID` | String(10) | ● | 商店代號 |
+| `AllPayLogisticsID` | String(20) | ● | ECPay 物流編號 |
+| `CheckMacValue` | String | ● | 檢查碼 |
 
 ### 回應
 
@@ -376,9 +376,9 @@ POST /Helper/QueryLogisticsTradeInfo/V2
 
 | 參數 | 類型 | 必填 | 說明 |
 |------|------|------|------|
-| `MerchantID` | String(10) | ✓ | 商店代號 |
-| `AllPayLogisticsID` | String(20) | ✓ | ECPay 物流編號 |
-| `CheckMacValue` | String | ✓ | 檢查碼 |
+| `MerchantID` | String(10) | ● | 商店代號 |
+| `AllPayLogisticsID` | String(20) | ● | ECPay 物流編號 |
+| `CheckMacValue` | String | ● | 檢查碼 |
 
 ### 回應參數
 

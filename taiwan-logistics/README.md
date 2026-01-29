@@ -140,10 +140,10 @@ taiwan-logistics init --ai claude --global
 
 ## 功能特色
 
-- ✅ **完整 API 文檔** - ECPay、NewebPay、PAYUNi 詳細規格
-- ✅ **代碼範例** - TypeScript/Python 完整可執行範例
-- ✅ **加密實作指南** - SHA256、AES-256-CBC、AES-256-GCM
-- ✅ **14 個 AI 平台** - 支援主流 AI 編程助手
+- **完整 API 文檔** - ECPay、NewebPay、PAYUNi 詳細規格
+- **代碼範例** - TypeScript/Python 完整可執行範例
+- **加密實作指南** - SHA256、AES-256-CBC、AES-256-GCM
+- **14 個 AI 平台** - 支援主流 AI 編程助手
 
 ---
 
@@ -187,4 +187,4 @@ taiwan-logistics init --ai claude --global
 
 ---
 
-<p align="center">Made with ❤️ for Taiwan developers</p>
+<p align="center">Made for Taiwan developers</p>

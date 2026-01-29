@@ -44,10 +44,10 @@ Last Updated: 2026-01-29
 
 | Code | Store | C2C Support | B2C Support |
 |------|-------|-------------|-------------|
-| 1 | 7-ELEVEN | ✓ | ✓ |
-| 2 | FamilyMart (全家) | ✓ | ✗ |
-| 3 | Hi-Life (萊爾富) | ✓ | ✗ |
-| 4 | OK Mart | ✓ | ✗ |
+| 1 | 7-ELEVEN | ● | ● |
+| 2 | FamilyMart (全家) | ● | ✗ |
+| 3 | Hi-Life (萊爾富) | ● | ✗ |
+| 4 | OK Mart | ● | ✗ |
 
 ---
 
@@ -141,21 +141,21 @@ Query convenience store locations for customer to select pickup or sender store.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| UID_ | Varchar(15) | ✓ | Merchant ID |
-| EncryptData_ | Text | ✓ | Encrypted data |
-| HashData_ | Text | ✓ | SHA256 hash |
-| Version_ | Varchar(5) | ✓ | API version (fixed: "1.0") |
-| RespondType_ | Varchar(6) | ✓ | Response format (fixed: "JSON") |
+| UID_ | Varchar(15) | ● | Merchant ID |
+| EncryptData_ | Text | ● | Encrypted data |
+| HashData_ | Text | ● | SHA256 hash |
+| Version_ | Varchar(5) | ● | API version (fixed: "1.0") |
+| RespondType_ | Varchar(6) | ● | Response format (fixed: "JSON") |
 
 **EncryptData_ Content:**
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerchantOrderNo | Varchar(30) | ✓ | Unique order ID (alphanumeric + underscore) |
-| LgsType | Varchar(15) | ✓ | "B2C" or "C2C" |
-| ShipType | Varchar(15) | ✓ | "1"=7-11, "2"=FamilyMart, "3"=Hi-Life, "4"=OK Mart |
-| ReturnURL | Varchar(50) | ✓ | Callback URL after store selection |
-| TimeStamp | Text | ✓ | Unix timestamp (tolerance: 120 seconds) |
+| MerchantOrderNo | Varchar(30) | ● | Unique order ID (alphanumeric + underscore) |
+| LgsType | Varchar(15) | ● | "B2C" or "C2C" |
+| ShipType | Varchar(15) | ● | "1"=7-11, "2"=FamilyMart, "3"=Hi-Life, "4"=OK Mart |
+| ReturnURL | Varchar(50) | ● | Callback URL after store selection |
+| TimeStamp | Text | ● | Unix timestamp (tolerance: 120 seconds) |
 | ExtraData | Varchar(20) | - | Custom data (returned as-is) |
 
 ### Response
@@ -206,28 +206,28 @@ Create logistics shipment order after payment order is established.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| UID_ | Varchar(15) | ✓ | Merchant ID |
-| EncryptData_ | Text | ✓ | Encrypted data |
-| HashData_ | Text | ✓ | SHA256 hash |
-| Version_ | Varchar(5) | ✓ | Fixed: "1.0" |
-| RespondType_ | Varchar(6) | ✓ | Fixed: "JSON" |
+| UID_ | Varchar(15) | ● | Merchant ID |
+| EncryptData_ | Text | ● | Encrypted data |
+| HashData_ | Text | ● | SHA256 hash |
+| Version_ | Varchar(5) | ● | Fixed: "1.0" |
+| RespondType_ | Varchar(6) | ● | Fixed: "JSON" |
 
 **EncryptData_ Content:**
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerchantOrderNo | Varchar(30) | ✓ | Unique order ID |
-| TradeType | Int(1) | ✓ | 1=COD, 3=No Payment |
-| UserName | Varchar(20) | ✓ | Recipient name |
-| UserTel | Varchar(10) | ✓ | Recipient mobile number |
-| UserEmail | Varchar(50) | ✓ | Recipient email |
-| StoreID | Varchar(10) | ✓ | Pickup store code (from store map) |
-| Amt | Int(10) | ✓ | Transaction amount (max: 20000 NTD) |
+| MerchantOrderNo | Varchar(30) | ● | Unique order ID |
+| TradeType | Int(1) | ● | 1=COD, 3=No Payment |
+| UserName | Varchar(20) | ● | Recipient name |
+| UserTel | Varchar(10) | ● | Recipient mobile number |
+| UserEmail | Varchar(50) | ● | Recipient email |
+| StoreID | Varchar(10) | ● | Pickup store code (from store map) |
+| Amt | Int(10) | ● | Transaction amount (max: 20000 NTD) |
 | NotifyURL | Varchar(100) | - | Status notification callback URL |
 | ItemDesc | Varchar(100) | - | Product description |
-| LgsType | Varchar(3) | ✓ | "B2C" or "C2C" |
-| ShipType | Varchar(15) | ✓ | "1"=7-11, "2"=FamilyMart, "3"=Hi-Life, "4"=OK Mart |
-| TimeStamp | Varchar(50) | ✓ | Unix timestamp (tolerance: 120 seconds) |
+| LgsType | Varchar(3) | ● | "B2C" or "C2C" |
+| ShipType | Varchar(15) | ● | "1"=7-11, "2"=FamilyMart, "3"=Hi-Life, "4"=OK Mart |
+| TimeStamp | Varchar(50) | ● | Unix timestamp (tolerance: 120 seconds) |
 
 **Amount Limits:**
 - COD (TradeType=1): Maximum 20,000 NTD
@@ -262,8 +262,8 @@ Get shipping code before shipment. Merchants can use this code to print labels a
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerchantOrderNo | Json_array | ✓ | Array of order IDs (max 10) |
-| TimeStamp | Varchar(50) | ✓ | Unix timestamp |
+| MerchantOrderNo | Json_array | ● | Array of order IDs (max 10) |
+| TimeStamp | Varchar(50) | ● | Unix timestamp |
 
 **Batch Limit:** Maximum 10 orders per request
 
@@ -310,10 +310,10 @@ Print shipping labels to attach to products.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| LgsType | Varchar(15) | ✓ | "B2C" or "C2C" |
-| ShipType | Varchar(15) | ✓ | "1"=7-11, "2"=FamilyMart, "3"=Hi-Life, "4"=OK Mart |
-| MerchantOrderNo | json_array | ✓ | Array of order IDs |
-| TimeStamp | Varchar(50) | ✓ | Unix timestamp |
+| LgsType | Varchar(15) | ● | "B2C" or "C2C" |
+| ShipType | Varchar(15) | ● | "1"=7-11, "2"=FamilyMart, "3"=Hi-Life, "4"=OK Mart |
+| MerchantOrderNo | json_array | ● | Array of order IDs |
+| TimeStamp | Varchar(50) | ● | Unix timestamp |
 
 **Batch Limits:**
 
@@ -342,8 +342,8 @@ Query logistics order information and current status.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerchantOrderNo | Varchar(30) | ✓ | Order ID |
-| TimeStamp | Varchar(50) | ✓ | Unix timestamp |
+| MerchantOrderNo | Varchar(30) | ● | Order ID |
+| TimeStamp | Varchar(50) | ● | Unix timestamp |
 
 ### Response
 
@@ -392,14 +392,14 @@ Modify shipment order details. Only available for orders that have not yet been 
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerchantOrderNo | Varchar(30) | ✓ | Order ID |
-| LgsType | Varchar(15) | ✓ | Logistics type |
-| ShipType | Varchar(15) | ✓ | Store type |
+| MerchantOrderNo | Varchar(30) | ● | Order ID |
+| LgsType | Varchar(15) | ● | Logistics type |
+| ShipType | Varchar(15) | ● | Store type |
 | UserName | Varchar(20) | - | New recipient name |
 | UserTel | Varchar(10) | - | New phone number |
 | UserEmail | Varchar(50) | - | New email |
 | StoreID | Varchar(10) | + | New store code |
-| TimeStamp | Varchar(50) | ✓ | Unix timestamp |
+| TimeStamp | Varchar(50) | ● | Unix timestamp |
 
 **Note:** When modifying for store reselection (RetId: 3, 11, 12), only StoreID can be changed. UserName, UserTel, and UserEmail cannot be modified.
 
@@ -428,8 +428,8 @@ Track complete logistics delivery history with all status changes.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| MerchantOrderNo | Varchar(30) | ✓ | Order ID |
-| TimeStamp | Varchar(50) | ✓ | Unix timestamp |
+| MerchantOrderNo | Varchar(30) | ● | Order ID |
+| TimeStamp | Varchar(50) | ● | Unix timestamp |
 
 ### Response
 
