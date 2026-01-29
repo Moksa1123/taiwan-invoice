@@ -1,0 +1,32 @@
+scenario,recommended_provider,confidence,reason,decision_rules,anti_patterns,use_cases
+高交易量電商,ECPay,HIGH,市佔率最高 系統穩定性佳,volume>1000/day AND priority=stability,避免使用測試環境長期運行,大型電商平台 購物網站
+穩定性優先,ECPay,HIGH,台灣電子發票市佔率領先,priority=stability OR risk_tolerance=low,避免頻繁切換服務商,金融相關 醫療系統
+完整文檔需求,ECPay,HIGH,提供完整 API 文檔與 SDK,priority=documentation OR team_size>3,避免依賴社群資源,企業級開發 團隊協作
+多語言SDK需求,ECPay,MEDIUM,官方SDK支援多種語言,language IN (java php dotnet) AND need_sdk=true,避免自行實作加密,Java/.NET專案
+簡單整合需求,SmilePay,HIGH,整合流程最簡單 無需複雜加密,priority=speed OR deadline<7days,避免過度設計,MVP開發 快速上線
+小型專案,SmilePay,HIGH,適合小型專案和個人開發者,team_size<=2 AND budget=low,避免過度工程化,個人專案 小型網站
+快速上線,SmilePay,HIGH,最快速完成整合,deadline<14days AND complexity=low,避免完美主義,緊急專案 POC驗證
+測試環境友善,SmilePay,MEDIUM,測試環境設定簡單,phase=development OR phase=testing,避免正式環境測試,開發階段 測試階段
+低預算專案,SmilePay,MEDIUM,費用相對較低,budget=low AND volume<500/day,避免過度投資,新創公司 個人開發
+API設計優先,Amego,HIGH,MIG 4.0 最新 API 標準,priority=api_design OR tech_stack=modern,避免使用舊版API,技術導向團隊
+現代技術棧,Amego,HIGH,採用最新技術標準,framework IN (nextjs nuxt sveltekit),避免傳統架構,現代前端專案
+RESTful需求,Amego,MEDIUM,API設計符合REST規範,priority=clean_code AND experience>3years,避免過度抽象,資深開發團隊
+MIG標準合規,Amego,HIGH,完整支援MIG 4.0規範,compliance=mig40 OR government=true,避免自定義協議,政府專案 標準合規
+B2B發票為主,ECPay,MEDIUM,B2B發票功能完整 經驗豐富,invoice_type=b2b AND volume>100/day,避免B2C邏輯套用B2B,企業對企業交易
+B2C發票為主,ECPay,MEDIUM,B2C市佔最高 問題解決資源多,invoice_type=b2c AND support_need=high,避免忽視客服需求,一般消費者交易
+B2C簡單整合,SmilePay,MEDIUM,B2C整合最簡單,invoice_type=b2c AND priority=speed,避免過度複雜化,簡單B2C場景
+混合發票需求,ECPay,MEDIUM,同時支援B2B/B2C 切換彈性,invoice_type=mixed,避免硬編碼發票類型,B2B+B2C混合
+載具功能需求,ECPay,MEDIUM,載具支援最完整,feature=carrier AND carrier_type IN (mobile barcode),避免忽略載具驗證,手機條碼整合
+捐贈功能需求,ECPay,MEDIUM,捐贈功能完整,feature=donation,避免捐贈與載具混用,公益捐贈整合
+列印功能需求,ECPay,MEDIUM,列印功能完整 多種格式,feature=print AND print_format IN (a4 thermal),避免忽略隨機碼,實體發票列印
+作廢功能需求,ECPay,LOW,作廢流程標準化,feature=void,避免作廢後重開相同號碼,發票作廢處理
+折讓功能需求,ECPay,LOW,折讓功能完整,feature=allowance,避免折讓超過原發票金額,退款折讓處理
+無技術資源,SmilePay,HIGH,無需複雜加密 整合門檻最低,tech_resource=limited OR developer_count=1,避免選擇高複雜度方案,一人團隊 非技術背景
+AES加密經驗,ECPay,MEDIUM,需要AES-128-CBC加密經驗,encryption_experience=aes,避免明文傳輸,有加密經驗團隊
+MD5簽章經驗,Amego,MEDIUM,使用MD5簽章驗證,encryption_experience=md5,避免簽章順序錯誤,有MD5經驗團隊
+Node.js專案,ECPay,MEDIUM,官方有Node.js範例,language=nodejs AND need_example=true,避免從零實作加密,Node.js開發
+Python專案,ECPay,MEDIUM,社群Python範例豐富,language=python,避免依賴過時範例,Python開發
+PHP專案,ECPay,HIGH,官方PHP SDK最完整,language=php AND need_sdk=true,避免版本不相容,PHP開發
+新創公司,SmilePay,MEDIUM,快速上線 成本控制,company_type=startup AND phase=early,避免過度投資基礎建設,早期新創
+企業級應用,ECPay,HIGH,穩定性和支援優先,company_type=enterprise,避免使用非主流方案,大型企業
+政府專案,Amego,MEDIUM,MIG標準合規,project_type=government,避免非標準協議,政府標案

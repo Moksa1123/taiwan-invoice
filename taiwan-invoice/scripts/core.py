@@ -47,6 +47,11 @@ CSV_CONFIG = {
         'file': 'troubleshooting.csv',
         'search_cols': ['issue', 'symptom', 'cause', 'solution', 'provider', 'category'],
         'output_cols': ['issue', 'symptom', 'cause', 'solution', 'provider', 'severity']
+    },
+    'reasoning': {
+        'file': 'reasoning.csv',
+        'search_cols': ['scenario', 'recommended_provider', 'reason', 'decision_rules', 'use_cases'],
+        'output_cols': ['scenario', 'recommended_provider', 'confidence', 'reason', 'anti_patterns', 'use_cases']
     }
 }
 
@@ -57,7 +62,8 @@ DOMAIN_KEYWORDS = {
     'error': ['error', 'code', '錯誤', '代碼', '失敗', 'fail', '-', '10000', '1001', '2001'],
     'field': ['field', 'param', '欄位', '參數', 'mapping', '映射', 'merchantid', 'orderid', 'buyername'],
     'tax': ['tax', 'b2c', 'b2b', '稅', '應稅', '免稅', '零稅率', 'salesamount', 'taxamount', '計算'],
-    'troubleshoot': ['問題', 'issue', 'error', 'fix', '解決', '失敗', '空白', 'troubleshoot', '踩坑']
+    'troubleshoot': ['問題', 'issue', 'error', 'fix', '解決', '失敗', '空白', 'troubleshoot', '踩坑'],
+    'reasoning': ['推薦', 'recommend', '選擇', 'choose', '適合', 'suitable', '場景', 'scenario', '決策', 'decision']
 }
 
 

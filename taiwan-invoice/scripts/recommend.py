@@ -82,6 +82,17 @@ def load_providers() -> List[Dict[str, str]]:
         return list(reader)
 
 
+def load_reasoning_rules() -> List[Dict[str, str]]:
+    """載入推理規則"""
+    filepath = os.path.join(DATA_DIR, 'reasoning.csv')
+    if not os.path.exists(filepath):
+        return []
+
+    with open(filepath, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        return list(reader)
+
+
 def analyze_requirements(query: str) -> Dict[str, Tuple[int, List[str]]]:
     """
     分析使用者需求，計算各加值中心分數
@@ -97,7 +108,29 @@ def analyze_requirements(query: str) -> Dict[str, Tuple[int, List[str]]]:
         'Amego': (0, []),
     }
 
-    # 根據關鍵字累計分數
+    # 從 reasoning.csv 載入規則
+    reasoning_rules = load_reasoning_rules()
+    confidence_weights = {'HIGH': 3, 'MEDIUM': 2, 'LOW': 1}
+
+    for rule in reasoning_rules:
+        scenario = rule.get('scenario', '').lower()
+        use_cases = rule.get('use_cases', '').lower()
+
+        # 檢查場景或使用案例是否匹配查詢
+        scenario_words = scenario.replace(' ', '')
+        if any(word in query_lower for word in scenario.split()) or \
+           any(word in query_lower for word in use_cases.split()):
+            provider = rule.get('recommended_provider', '')
+            confidence = rule.get('confidence', 'LOW')
+            reason = rule.get('reason', '')
+
+            if provider in scores:
+                weight = confidence_weights.get(confidence, 1)
+                current_score, reasons = scores[provider]
+                if reason and reason not in reasons:
+                    scores[provider] = (current_score + weight, reasons + [reason])
+
+    # 根據關鍵字累計分數 (fallback)
     for keyword, rules in RECOMMENDATION_RULES.items():
         if keyword.lower() in query_lower:
             for provider, weight, reason in rules:

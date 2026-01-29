@@ -15087,6 +15087,11 @@ async function copyTaiwanInvoiceAssets(targetSkillDir, sections) {
     await (0, import_promises.mkdir)(scriptsTarget, { recursive: true });
     await (0, import_promises.cp)((0, import_node_path.join)(sourceDir, "scripts"), scriptsTarget, { recursive: true });
   }
+  if (sections.scripts && await exists((0, import_node_path.join)(sourceDir, "data"))) {
+    const dataTarget = (0, import_node_path.join)(targetSkillDir, "data");
+    await (0, import_promises.mkdir)(dataTarget, { recursive: true });
+    await (0, import_promises.cp)((0, import_node_path.join)(sourceDir, "data"), dataTarget, { recursive: true });
+  }
 }
 async function generatePlatformFiles(targetDir, aiType) {
   const config = await loadPlatformConfig(aiType);

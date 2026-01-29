@@ -23,22 +23,29 @@ from core import (
 )
 
 
-def format_ascii_box(title: str, content: List[str], width: int = 80) -> str:
+def format_ascii_box(title: str, content: List[str], width: int = 80, style: str = 'double') -> str:
     """
     格式化 ASCII Box 輸出
+
+    style: 'single' (─│) or 'double' (═║)
     """
+    if style == 'double':
+        h, v, tl, tr, bl, br, lm, rm = '═', '║', '╔', '╗', '╚', '╝', '╠', '╣'
+    else:
+        h, v, tl, tr, bl, br, lm, rm = '─', '│', '┌', '┐', '└', '┘', '├', '┤'
+
     lines = []
-    lines.append('┌' + '─' * (width - 2) + '┐')
-    lines.append('│' + f' {title}'.ljust(width - 2) + '│')
-    lines.append('├' + '─' * (width - 2) + '┤')
+    lines.append(tl + h * (width - 2) + tr)
+    lines.append(v + f' {title}'.ljust(width - 2) + v)
+    lines.append(lm + h * (width - 2) + rm)
 
     for line in content:
         # 處理過長的行
         if len(line) > width - 4:
             line = line[:width - 7] + '...'
-        lines.append('│ ' + line.ljust(width - 4) + ' │')
+        lines.append(v + ' ' + line.ljust(width - 4) + ' ' + v)
 
-    lines.append('└' + '─' * (width - 2) + '┘')
+    lines.append(bl + h * (width - 2) + br)
     return '\n'.join(lines)
 
 
@@ -104,6 +111,66 @@ def format_all_results(results: Dict[str, List[Dict[str, Any]]], query: str) -> 
     return '\n'.join(output)
 
 
+def format_markdown_result(result: Dict[str, Any], index: int) -> str:
+    """
+    格式化單個結果為 Markdown
+    """
+    lines = []
+    score = result.get('_score', 0)
+    lines.append(f"### Result {index} (Score: {score})")
+    lines.append("")
+
+    for key, value in result.items():
+        if key == '_score' or not value:
+            continue
+        lines.append(f"- **{key}**: {value}")
+
+    lines.append("")
+    return '\n'.join(lines)
+
+
+def format_markdown_domain(results: List[Dict[str, Any]], domain: str, query: str) -> str:
+    """
+    格式化域結果為 Markdown
+    """
+    if not results:
+        return f"No results found in '{domain}' for query: {query}\n"
+
+    lines = []
+    lines.append(f"## {domain.upper()}")
+    lines.append(f"")
+    lines.append(f"> Query: `{query}` | Results: {len(results)}")
+    lines.append("")
+
+    for i, result in enumerate(results, 1):
+        lines.append(format_markdown_result(result, i))
+
+    return '\n'.join(lines)
+
+
+def format_markdown_all(results: Dict[str, List[Dict[str, Any]]], query: str) -> str:
+    """
+    格式化所有域結果為 Markdown
+    """
+    if not results:
+        return f"# No results found for query: {query}\n"
+
+    lines = []
+    lines.append(f"# Taiwan Invoice Search Results")
+    lines.append(f"")
+    lines.append(f"**Query**: `{query}`")
+    lines.append(f"")
+    lines.append("---")
+    lines.append("")
+
+    for domain, domain_results in results.items():
+        lines.append(format_markdown_domain(domain_results, domain, query))
+        lines.append("---")
+        lines.append("")
+
+    return '\n'.join(lines)
+
+
 def list_domains():
     """
     列出所有可用的搜索域
@@ -148,7 +215,7 @@ Examples:
                         help='Search all domains')
     parser.add_argument('-l', '--list', action='store_true',
                         help='List available domains')
-    parser.add_argument('-f', '--format', choices=['ascii', 'simple', 'json'],
+    parser.add_argument('-f', '--format', choices=['ascii', 'simple', 'json', 'markdown', 'md'],
                         default='ascii', help='Output format (default: ascii)')
 
     args = parser.parse_args()
@@ -172,6 +239,8 @@ Examples:
         if args.format == 'json':
             import json
             print(json.dumps(results, ensure_ascii=False, indent=2))
+        elif args.format in ('markdown', 'md'):
+            print(format_markdown_all(results, query))
         else:
             print(format_all_results(results, query))
         return
@@ -180,13 +249,16 @@ Examples:
     domain = args.domain
     if not domain:
         domain = detect_domain(query)
-        print(f"[Auto-detected domain: {domain}]")
+        if args.format not in ('json', 'markdown', 'md'):
+            print(f"[Auto-detected domain: {domain}]")
 
     results = search(query, domain, args.max_results)
 
     if args.format == 'json':
         import json
         print(json.dumps(results, ensure_ascii=False, indent=2))
+    elif args.format in ('markdown', 'md'):
+        print(format_markdown_domain(results, domain, query))
     elif args.format == 'simple':
         for i, result in enumerate(results, 1):
             print(f"\n[{i}] Score: {result.get('_score', 0)}")

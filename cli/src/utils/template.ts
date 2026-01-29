@@ -110,6 +110,13 @@ async function copyTaiwanInvoiceAssets(targetSkillDir: string, sections: Platfor
     await mkdir(scriptsTarget, { recursive: true });
     await cp(join(sourceDir, 'scripts'), scriptsTarget, { recursive: true });
   }
+
+  // Copy data if enabled (CSV data files for search engine)
+  if (sections.scripts && await exists(join(sourceDir, 'data'))) {
+    const dataTarget = join(targetSkillDir, 'data');
+    await mkdir(dataTarget, { recursive: true });
+    await cp(join(sourceDir, 'data'), dataTarget, { recursive: true });
+  }
 }
 
 export async function generatePlatformFiles(

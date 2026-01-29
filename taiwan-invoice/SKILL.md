@@ -21,7 +21,8 @@ user-invocable: true
 - `scripts/search.py` - BM25 搜索引擎（查詢 API、錯誤碼、欄位映射）
 - `scripts/recommend.py` - 加值中心推薦系統
 - `scripts/generate-invoice-service.py` - 服務代碼生成器
-- `data/` - CSV 數據檔（providers, operations, error-codes, field-mappings, tax-rules, troubleshooting）
+- `scripts/persist.py` - 持久化配置工具（MASTER.md 生成）
+- `data/` - CSV 數據檔（providers, operations, error-codes, field-mappings, tax-rules, troubleshooting, reasoning）
 
 ### 何時使用此技能
 - 開發電子發票開立功能
@@ -66,6 +67,7 @@ python scripts/search.py "折讓" --format json
 | `field` | 欄位映射 | field-mappings.csv |
 | `tax` | 稅務計算規則 | tax-rules.csv |
 | `troubleshoot` | 疑難排解 | troubleshooting.csv |
+| `reasoning` | 推薦決策規則 | reasoning.csv |
 
 ### 推薦系統 (recommend.py)
 
@@ -106,6 +108,37 @@ python scripts/generate-invoice-service.py SmilePay --output py
 
 # 輸出到檔案
 python scripts/generate-invoice-service.py Amego --output ts > amego-service.ts
+```
+
+### 持久化配置 (persist.py)
+
+將發票配置保存為 MASTER.md，供 AI 助手持續參考：
+
+```bash
+# 初始化配置
+python scripts/persist.py init ECPay
+python scripts/persist.py init SmilePay -p "MyProject"
+
+# 顯示當前配置
+python scripts/persist.py show
+
+# 列出可用服務商
+python scripts/persist.py list
+
+# 強制覆蓋
+python scripts/persist.py init Amego --force
+```
+
+**生成結構：**
+```
+invoice-config/
+└── MASTER.md       # 專案發票配置
+    ├── 基本資訊
+    ├── 服務商配置
+    ├── API 端點
+    ├── 發票類型設定
+    ├── 環境變數建議
+    └── 開發檢查清單
 ```
 
 ---
