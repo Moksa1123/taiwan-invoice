@@ -32,12 +32,20 @@ RECOMMENDATION_RULES = {
     '測試': [('SmilePay', 2, '測試環境設定簡單')],
     '無加密': [('SmilePay', 3, '無需複雜加密流程')],
     '便宜': [('SmilePay', 2, '費用較低')],
+    '純b2c': [('SmilePay', 3, 'SmilePay 專注於 B2C 發票，API 設計簡潔')],
+    '48小時': [('SmilePay', 2, 'SmilePay B2C 須在 48 小時內開立')],
+    '字軌': [('SmilePay', 2, 'SmilePay 提供完整字軌管理功能')],
+    'allamount': [('SmilePay', 2, 'SmilePay 使用 AllAmount 進行金額驗算')],
 
     'api': [('Amego', 3, 'MIG 4.0 最新 API 標準')],
     '設計': [('Amego', 2, 'API 設計優良')],
     '新': [('Amego', 2, '採用最新技術標準')],
     'mig': [('Amego', 3, '完整支援 MIG 4.0 規範')],
     '標準': [('Amego', 2, 'API 設計符合業界標準')],
+    'md5': [('Amego', 3, 'Amego 使用 MD5 簽章驗證，計算簡單')],
+    'detailvat': [('Amego', 3, 'Amego 使用 DetailVat 區分含稅/未稅')],
+    'json': [('Amego', 3, 'Amego 回應格式為標準 JSON，易於解析')],
+    '國際化': [('Amego', 2, 'Amego API 文件提供英文版，適合國際團隊')],
 
     # B2B/B2C 相關
     'b2b': [('ECPay', 1, 'B2B 發票功能完整'), ('Amego', 1, 'B2B 計算清晰')],

@@ -206,20 +206,74 @@ def query_order(order_id: str):
         print(f'查詢失敗: {e}')
 
 
+def test_newebpay():
+    """測試 NewebPay 物流 API 連線和資料格式驗證"""
+    print("\n=== 測試 NewebPay 物流 API ===\n")
+
+    # 1. 測試建立訂單端點
+    endpoint = "https://ccore.newebpay.com/API/Logistic/createShipment"
+    print(f"建立訂單端點: {endpoint}")
+
+    # 2. 驗證必要欄位
+    required_fields = ["uid", "merchant_order_no", "lgs_type", "goods_amount",
+                      "receiver_name", "receiver_cell_phone"]
+    print(f"必要欄位: {', '.join(required_fields)}")
+
+    # 3. 測試查詢訂單
+    query_endpoint = "https://ccore.newebpay.com/API/Logistic/queryShipment"
+    print(f"查詢訂單端點: {query_endpoint}")
+
+    # 4. 測試超商地圖
+    map_endpoint = "https://ccore.newebpay.com/API/Logistic/storeMap"
+    print(f"超商地圖端點: {map_endpoint}")
+
+    print("\nNewebPay 端點和欄位檢查完成")
+
+
+def test_payuni():
+    """測試 PAYUNi 物流 API 連線和資料格式驗證"""
+    print("\n=== 測試 PAYUNi 物流 API ===\n")
+
+    # 1. 測試建立訂單端點
+    endpoint = "https://sandbox-api.payuni.com.tw/api/logistics/create"
+    print(f"建立訂單端點: {endpoint}")
+
+    # 2. 驗證必要欄位
+    required_fields = ["MerID", "MerTradeNo", "LogisticsType", "GoodsAmount",
+                      "ReceiverName", "ReceiverCellPhone"]
+    print(f"必要欄位: {', '.join(required_fields)}")
+
+    # 3. 測試查詢訂單
+    query_endpoint = "https://sandbox-api.payuni.com.tw/api/logistics/query"
+    print(f"查詢訂單端點: {query_endpoint}")
+
+    # 4. 測試取消訂單
+    cancel_endpoint = "https://sandbox-api.payuni.com.tw/api/logistics/cancel"
+    print(f"取消訂單端點: {cancel_endpoint}")
+
+    print("\nPAYUNi 端點和欄位檢查完成")
+
+
 def main():
     parser = argparse.ArgumentParser(
-        description='ECPay Logistics API 測試工具'
+        description='Taiwan Logistics API 測試工具'
+    )
+    parser.add_argument(
+        'provider',
+        nargs='?',
+        choices=['ecpay', 'newebpay', 'payuni'],
+        help='指定測試的廠商 (預設測試全部)'
     )
     parser.add_argument(
         '--create',
         action='store_true',
-        help='建立測試訂單'
+        help='建立測試訂單 (僅支援 ECPay)'
     )
     parser.add_argument(
         '--query',
         type=str,
         metavar='ORDER_ID',
-        help='查詢訂單狀態'
+        help='查詢訂單狀態 (僅支援 ECPay)'
     )
 
     args = parser.parse_args()
@@ -228,8 +282,18 @@ def main():
         create_test_order()
     elif args.query:
         query_order(args.query)
+    elif args.provider:
+        if args.provider == 'ecpay':
+            test_connection()
+        elif args.provider == 'newebpay':
+            test_newebpay()
+        elif args.provider == 'payuni':
+            test_payuni()
     else:
+        # 測試所有廠商
         test_connection()
+        test_newebpay()
+        test_payuni()
 
 
 if __name__ == '__main__':

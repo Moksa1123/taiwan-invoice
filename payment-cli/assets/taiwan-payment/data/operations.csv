@@ -3,6 +3,6 @@ create_order,建立訂單,/Cashier/AioCheckOut/V5,/MPG/mpg_gateway,/api/order/cr
 query_order,查詢訂單,/Cashier/QueryTradeInfo/V5,/API/QueryTradeInfo,/api/order/query,POST,"MerchantID,MerchantTradeNo,TimeStamp",查詢交易狀態
 credit_action,信用卡請退款,/CreditDetail/DoAction,/API/CreditCard/Close,/api/credit/action,POST,"MerchantID,TradeNo,Action,TotalAmount",請款/退款/取消
 query_credit,信用卡查詢,/CreditDetail/QueryTrade/V2,/API/CreditCard/TradeInfo,/api/credit/query,POST,"MerchantID,CreditRefundId",查詢信用卡交易
-periodic_create,定期定額建立,/Cashier/AioCheckOut/V5,/API/CreditCard/Period,,POST,"PeriodAmount,PeriodType,Frequency,ExecTimes",設定週期付款
+periodic_create,定期定額建立,/Cashier/AioCheckOut/V5,/API/CreditCard/Period,/api/trade/periodic,POST,"PeriodAmount,PeriodType,Frequency,ExecTimes",設定週期付款
 periodic_query,定期定額查詢,/Cashier/QueryCreditCardPeriodInfo,/API/CreditCard/PeriodInfo,,POST,"MerchantID,MerchantTradeNo",查詢週期付款
 periodic_action,定期定額操作,/CreditDetail/CreditCardPeriodAction,/API/CreditCard/PeriodAlter,,POST,"MerchantID,Action",取消/修改週期

@@ -15,7 +15,7 @@ ECPay,10000018,載具與捐贈不可同時存在,Carrier and donation conflict,�
 ECPay,10000019,打統編不可使用載具,B2B cannot use carrier,開立,移除載具設定
 ECPay,10000020,打統編不可捐贈,B2B cannot donate,開立,設定 Donation=0
 ECPay,6000015,買方識別碼資料不存在,Buyer identifier not found,開立,測試環境 B2B 需預先註冊統編
-SmilePay,0,開立成功,Success,成功,
+SmilePay,0,開立成功,Success,成功,無需處理
 SmilePay,-1001,商家帳號缺少參數,Missing merchant parameters,認證,檢查 Grvc 和 Verify_key
 SmilePay,-10011,查無商家帳號,Merchant not found,認證,確認帳號正確
 SmilePay,-10012,尚未開放B2B功能,B2B not enabled,權限,聯繫速買配開通
@@ -31,7 +31,7 @@ SmilePay,-10085,商品數量驗算錯誤,Item quantity calculation error,開立,
 SmilePay,-10086,單價驗算錯誤,Unit price calculation error,開立,確認 UnitPrice 為正數
 SmilePay,-10090,載具格式錯誤,Invalid carrier format,開立,手機條碼需為/開頭8碼
 SmilePay,-2009,折讓金額超過剩餘金額,Allowance exceeds remaining,折讓,確認折讓金額小於發票剩餘金額
-Amego,0,成功,Success,成功,
+Amego,0,成功,Success,成功,無需處理
 Amego,1,參數錯誤,Parameter error,通用,檢查必填欄位
 Amego,2,簽章驗證失敗,Signature verification failed,認證,檢查 MD5 簽章計算
 Amego,3,時間戳記誤差過大,Timestamp error,認證,確保時間戳誤差在 ±60 秒內

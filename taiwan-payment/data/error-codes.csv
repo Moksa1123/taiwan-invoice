@@ -18,6 +18,13 @@ newebpay,TRA10014,商店代號錯誤,Invalid Merchant,auth,error,確認商店代
 newebpay,TRA10027,檢查碼錯誤,CheckValue Error,auth,error,重新計算檢查碼
 newebpay,TRA20001,交易失敗,Transaction Failed,payment,error,稍後重試
 newebpay,TRA20014,交易逾時,Transaction Timeout,payment,error,重新交易
+newebpay,AES-001,AES加密失敗,AES Encryption Failed,encryption,error,檢查HashKey和HashIV是否正確
+newebpay,AES-002,AES解密失敗,AES Decryption Failed,encryption,error,檢查加密資料完整性和IV
+newebpay,TM-999,API逾時,API Timeout,system,error,稍後重試
+newebpay,ORDER-001,訂單狀態衝突,Order Status Conflict,validation,error,檢查訂單當前狀態
+newebpay,REFUND-001,退款失敗,Refund Failed,refund,error,確認訂單可退款且金額正確
+newebpay,AMT-001,金額驗證錯誤,Amount Validation Error,validation,error,檢查金額格式和範圍
+newebpay,MID-001,商店代號錯誤,Invalid Merchant ID,auth,error,確認MerchantID正確
 payuni,SUCCESS,交易成功,Success,success,info,
 payuni,FAILED,交易失敗,Transaction Failed,payment,error,確認交易狀態
 payuni,INVALID_MERID,商店代號不存在,Invalid Merchant ID,auth,error,確認 MerID 正確
